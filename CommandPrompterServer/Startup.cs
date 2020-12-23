@@ -22,6 +22,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.OpenApi.Models;
+using CommandPrompterServer.Helpers;
+using CommandPrompterServer.Models.Dao;
 
 namespace CommandPrompterServer
 {
@@ -35,6 +37,10 @@ namespace CommandPrompterServer
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
@@ -44,6 +50,7 @@ namespace CommandPrompterServer
 
             services.AddSwaggerGen(config =>
             {
+                config.SwaggerGeneratorOptions.IgnoreObsoleteActions = true;
                 config.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Title = "test",
@@ -98,12 +105,22 @@ namespace CommandPrompterServer
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtToken:SecretKey"]))
                 };
             });
-  
+
         }
 
+        /// <summary>
+        /// core 3.0+ requires this way to replace the default DI container
+        /// </summary>
+        /// <param name="builder"></param>
         public void ConfigureContainer(ContainerBuilder builder)
         {
             // Register your own things directly with Autofac
+            builder.RegisterType<ServiceInterceptor>().AutoWireNonPublicProperties().InstancePerDependency();
+            builder.RegisterType<ManagerInterceptor>().AutoWireNonPublicProperties().InstancePerDependency();
+            builder.RegisterType<ConfigurationRoot>().AutoWireNonPublicProperties().SingleInstance();
+            builder.RegisterType<Helpers.SimpleFileLogger>().AutoWireNonPublicProperties().SingleInstance();
+            
+
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
                 .Where(t => t.Name.EndsWith("Impl"))
                 .AutoWireNonPublicProperties()
@@ -113,13 +130,17 @@ namespace CommandPrompterServer
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

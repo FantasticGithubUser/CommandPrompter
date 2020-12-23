@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Nullable>warnings</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,12 +29,6 @@
   <ItemGroup>
     <Folder Include="Managers\Interfaces\" />
     <Folder Include="Managers\Implementations\" />
-    <Folder Include="Models\Dao\Interfaces\" />
-    <Folder Include="Models\Dao\Implementations\" />
-    <Folder Include="Services\Interfaces\" />
-    <Folder Include="Services\Implementations\" />
-    <Folder Include="Exceptions\" />
-    <Folder Include="Helpers\" />
     <Folder Include="Attributes\" />
     <Folder Include="Jobs\" />
   </ItemGroup>

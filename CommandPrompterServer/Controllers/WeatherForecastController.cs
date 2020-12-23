@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using CommandPrompterServer.Helpers;
+using CommandPrompterServer.Services;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +12,14 @@ namespace CommandPrompterServer.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class WeatherForecastController : Controller
     {
+        public IBaseService _service { get; set; }
+        public ILogger _logger;
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController()
         {
-            _logger = logger;
+
         }
 
         /// <summary>
@@ -26,11 +27,12 @@ namespace CommandPrompterServer.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Authorize]
+        //[Authorize]
+        [AllowAnonymous]
         public async Task<IEnumerable<string>> Get()
         {
             var accessToken = await HttpContext.GetTokenAsync("access_token");
-
+            _service.DoSomething();
             return new string[] { accessToken,"Successed!" };
         }
     }
