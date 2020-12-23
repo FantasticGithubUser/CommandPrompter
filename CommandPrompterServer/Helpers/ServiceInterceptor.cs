@@ -2,6 +2,7 @@
 using CommandPrompterServer.Exceptions;
 using CommandPrompterServer.Models.Dao;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,8 @@ namespace CommandPrompterServer.Helpers
     public class ServiceInterceptor : BaseInterceptor
     {
         private bool firstRun = true;
-        private ILogger logger;
+        private IConfiguration _configuration { get; set; }
+        private ILogger _logger { get; set; }
         public override event Action<IInvocation> HandlerBeforeEvent;
         public override event Action<IInvocation> HandlerAfterEvent;
         public override event Action<IInvocation> HandlerErrorEvent;
@@ -21,9 +23,9 @@ namespace CommandPrompterServer.Helpers
         {
             try
             {
-                logger.Log("before");
+                _logger.Log("before");
                 HandlerBeforeEvent?.Invoke(invocation);
-                using (var context = new CommandPrompterDbContext())
+                using (var context = new CommandPrompterDbContext(_configuration))
                 {
                     if (firstRun)
                     {
@@ -33,7 +35,7 @@ namespace CommandPrompterServer.Helpers
                     var strategy = context.Database.CreateExecutionStrategy();
                     strategy.Execute(() =>
                     {
-                        using (var context = new CommandPrompterDbContext())
+                        using (var context = new CommandPrompterDbContext(_configuration))
                         {
                             using (var transaction = context.Database.BeginTransaction())
                             {
@@ -45,28 +47,28 @@ namespace CommandPrompterServer.Helpers
                                 }catch(InnerException es)
                                 {
                                     transaction.Rollback();
-                                    logger.Log(es.ToString());
+                                    _logger.Log(es.ToString());
                                 }catch(Exception es)
                                 {
                                     transaction.Rollback();
-                                    logger.Log(es.ToString());
+                                    _logger.Log(es.ToString());
                                 }
                             }
                         }
                     });
                 }
                 HandlerAfterEvent?.Invoke(invocation);
-                logger.Log("after");
+                _logger.Log("after");
 
             }
             catch(InnerException es)
             {
-                logger.Log(es.ToString());
+                _logger.Log(es.ToString());
                 HandlerErrorEvent?.Invoke(invocation);
             }
             catch(Exception es)
             {
-                logger.Log(es.ToString());
+                _logger.Log(es.ToString());
                 HandlerErrorEvent?.Invoke(invocation);
             }
         }

@@ -24,6 +24,7 @@ using Microsoft.IdentityModel.Logging;
 using Microsoft.OpenApi.Models;
 using CommandPrompterServer.Helpers;
 using CommandPrompterServer.Models.Dao;
+using CommandPrompterServer.Services;
 
 namespace CommandPrompterServer
 {
@@ -43,6 +44,10 @@ namespace CommandPrompterServer
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc(options =>
+            {
+                options.EnableEndpointRouting = false;
+            }).AddControllersAsServices();
             services.AddControllers();
             services.AddQuartz();
 
@@ -115,11 +120,24 @@ namespace CommandPrompterServer
         public void ConfigureContainer(ContainerBuilder builder)
         {
             // Register your own things directly with Autofac
-            builder.RegisterType<ServiceInterceptor>().AutoWireNonPublicProperties().InstancePerDependency();
-            builder.RegisterType<ManagerInterceptor>().AutoWireNonPublicProperties().InstancePerDependency();
-            builder.RegisterType<ConfigurationRoot>().AutoWireNonPublicProperties().SingleInstance();
-            builder.RegisterType<Helpers.SimpleFileLogger>().AutoWireNonPublicProperties().SingleInstance();
-            
+            builder.RegisterType<ServiceInterceptor>()
+                .PropertiesAutowired()
+                .AutoWireNonPublicProperties()
+                .InstancePerDependency();
+            builder.RegisterType<ManagerInterceptor>()
+                .PropertiesAutowired()
+                .AutoWireNonPublicProperties()
+                .InstancePerDependency();
+            builder.RegisterInstance(Configuration)
+                .As<IConfiguration>()
+                .PropertiesAutowired()
+                .AutoWireNonPublicProperties()
+                .SingleInstance();
+            builder.RegisterType<Helpers.SimpleFileLogger>()
+                .AsImplementedInterfaces()
+                .PropertiesAutowired()
+                .AutoWireNonPublicProperties()
+                .SingleInstance();
 
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
                 .Where(t => t.Name.EndsWith("Impl"))
@@ -127,6 +145,13 @@ namespace CommandPrompterServer
                 .AsImplementedInterfaces()
                 .EnableInterfaceInterceptors()
                 .SingleInstance();
+
+            foreach (var controllerType in Assembly.GetExecutingAssembly().ExportedTypes)
+                if (controllerType.IsSubclassOf(typeof(Controller)))
+                    builder.RegisterType(controllerType).PropertiesAutowired().AutoWireNonPublicProperties()
+                        .SingleInstance();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -160,10 +185,7 @@ namespace CommandPrompterServer
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseMvc();
         }
     }
 }

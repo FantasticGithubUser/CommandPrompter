@@ -10,17 +10,11 @@ using System.Threading.Tasks;
 
 namespace CommandPrompterServer.Controllers
 {
-    [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : Controller
     {
         public IBaseService _service { get; set; }
-        public ILogger _logger;
 
-        public WeatherForecastController()
-        {
-
-        }
 
         /// <summary>
         /// Get weather infomations

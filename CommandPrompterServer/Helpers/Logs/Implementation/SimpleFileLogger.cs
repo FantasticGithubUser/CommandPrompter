@@ -15,7 +15,7 @@ namespace CommandPrompterServer.Helpers
         {
             if (Instance == null)
             {
-                logPosition = _configuration["LogPosition"];
+                //logPosition = _configuration["LogPosition"];
                 Instance = this;
             }
         }
@@ -25,6 +25,7 @@ namespace CommandPrompterServer.Helpers
         private static string logPosition;
         public void Log(string message)
         {
+            logPosition = _configuration["LogPosition"];
             Instance.WriteToFile(message);
         }
 
@@ -39,7 +40,6 @@ namespace CommandPrompterServer.Helpers
                     str = logCache.Peek();
                     try
                     {
-                        File.OpenWrite(logPosition);
                         File.AppendAllText(logPosition, $"{DateTime.Now}: {message}\n");
                         logCache.Pop();
                     }catch(IOException es)

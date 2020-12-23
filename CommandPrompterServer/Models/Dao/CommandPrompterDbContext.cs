@@ -12,10 +12,11 @@ namespace CommandPrompterServer.Models.Dao
     /// </summary>
     public class CommandPrompterDbContext : DbContext
     {
-        protected IConfiguration _configuration { get; set; }
+        private IConfiguration _configuration { get; set; }
 
-        public CommandPrompterDbContext()
+        public CommandPrompterDbContext(IConfiguration configuration)
         {
+            _configuration = configuration;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
