@@ -1,4 +1,5 @@
 ﻿using CommandPrompterServer.Models.Dto;
+using CommandPrompterServer.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -14,7 +15,7 @@ namespace CommandPrompterServer.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class LoginController : ControllerBase
+    public class LoginController : Controller
     {
         public LoginController(IConfiguration configuration)
         {
@@ -22,6 +23,7 @@ namespace CommandPrompterServer.Controllers
         }
 
         public IConfiguration _configuration { get; }
+        private IDatabaseService _databaseService { get; set; }
         private string BuildJWTToken()
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtToken:SecretKey"]));
@@ -65,6 +67,32 @@ namespace CommandPrompterServer.Controllers
                 return Unauthorized();
             }
             return Ok(new { Token = tokenString });
+        }
+
+        /// <summary>
+        /// Clear the whole database for test.
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("ClearDatabase")]
+        public IActionResult ClearDatabase()
+        {
+            _databaseService.EnsureClearDatabase();
+            return Ok("Database Cleared");
+        }
+
+        /// <summary>
+        /// Create the whole database for test.
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("CreateDatabase")]
+        public IActionResult CreateDatabase()
+        {
+            _databaseService.EnsureCreateDatabase();
+            return Ok("Database Created");
         }
     }
 }

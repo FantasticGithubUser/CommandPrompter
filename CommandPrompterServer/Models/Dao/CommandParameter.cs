@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace CommandPrompterServer.Models.Dao
         /// <summary>
         /// The command id the parameter belongs to
         /// </summary>
+        [Required]
+        [MaxLength(36)]
         public string CommandId { get; set; }
 
         /// <summary>
@@ -23,23 +26,32 @@ namespace CommandPrompterServer.Models.Dao
         public Command Command { get; set; }
 
         /// <summary>
-        /// The order this parameter in the command
+        /// The order this parameter in the command, starts with 0
         /// </summary>
-        public string Order { get; set; }
+        [Column("ParameterOrder")]
+        [Required]
+        public int ParameterOrder { get; set; }
 
         /// <summary>
         /// The parameter's name
         /// </summary>
+        [Column("Name")]
+        [Required]
+        [MaxLength(255)]
         public string Name { get; set; }
 
         /// <summary>
         /// All the allowed value this parameter allowed
         /// </summary>
-        public string AllowedValue { get; set; }
+        [Column("AllowedValueExample")]
+        [MaxLength(1023)]
+        public string AllowedValueExample { get; set; }
 
         /// <summary>
         /// Description of details
         /// </summary>
+        [Column("Description")]
+        [MaxLength(2047)]
         public string Description { get; set; }
     }
 }

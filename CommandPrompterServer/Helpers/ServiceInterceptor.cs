@@ -23,7 +23,6 @@ namespace CommandPrompterServer.Helpers
         {
             try
             {
-                _logger.Log("before");
                 HandlerBeforeEvent?.Invoke(invocation);
                 using (var context = new CommandPrompterDbContext(_configuration))
                 {
@@ -50,7 +49,14 @@ namespace CommandPrompterServer.Helpers
                                     _logger.Log(es.ToString());
                                 }catch(Exception es)
                                 {
-                                    transaction.Rollback();
+                                    try
+                                    {
+                                        transaction.Rollback();
+                                    }
+                                    catch(Exception inneres)
+                                    {
+                                        //do nothing.
+                                    }
                                     _logger.Log(es.ToString());
                                 }
                             }
@@ -58,7 +64,6 @@ namespace CommandPrompterServer.Helpers
                     });
                 }
                 HandlerAfterEvent?.Invoke(invocation);
-                _logger.Log("after");
 
             }
             catch(InnerException es)
