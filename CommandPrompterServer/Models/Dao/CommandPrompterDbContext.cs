@@ -42,6 +42,16 @@ namespace CommandPrompterServer.Models.Dao
         protected override void OnModelCreating(ModelBuilder builder)
         {
 
+            /*
+             Unfortunately EF Core currently (latest at this time v2.0) does not expose a good way to control the conventions globally.
+             The default EF Core 2.0 convention is to use DeleteBehavior.Cascade for required and DeleteBehavior.ClientSetNull for optional relationships. What I can suggest as workaround is a typical metadata model loop at the end of the OnModelCreating override. In this case, locating all the already discovered relationships and modifying them accordingly:
+             */
+            var cascadeFKs = builder.Model.GetEntityTypes()
+                .SelectMany(t => t.GetForeignKeys())
+                .Where(fk => !fk.IsOwnership && fk.DeleteBehavior == DeleteBehavior.Cascade);
+
+            foreach (var fk in cascadeFKs)
+                fk.DeleteBehavior = DeleteBehavior.Restrict;
         }
     }
 }

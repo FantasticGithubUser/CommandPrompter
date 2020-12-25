@@ -32,6 +32,9 @@ namespace CommandPrompterServer.Models.Dao
         [Column("Deleted")]
         public bool Deleted { get; set; }
 
+
+        //Troubleshooting: This foreign key can cause cascade problems.
+
         /// <summary>
         /// Reference to the last Simple dao.
         /// </summary>
@@ -67,7 +70,7 @@ namespace CommandPrompterServer.Models.Dao
         /// The user deleted this entry
         /// </summary>
         [ForeignKey("DeletedBy")]
-        public User DepetedByUser { get; set; }
+        public User DeletedByUser { get; set; }
 
         /// <summary>
         /// The user created the entry
