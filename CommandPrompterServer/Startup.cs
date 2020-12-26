@@ -35,6 +35,9 @@ namespace CommandPrompterServer
             Configuration = configuration;
         }
 
+        /// <summary>
+        /// Microsfot default configuration using appsettings.json
+        /// </summary>
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -44,6 +47,7 @@ namespace CommandPrompterServer
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            GlobalConfiguration.ImportConfiguration(Configuration);
             services.AddMvc(options =>
             {
                 options.EnableEndpointRouting = false;
@@ -128,11 +132,13 @@ namespace CommandPrompterServer
                 .PropertiesAutowired()
                 .AutoWireNonPublicProperties()
                 .InstancePerDependency();
-            builder.RegisterInstance(Configuration)
-                .As<IConfiguration>()
-                .PropertiesAutowired()
-                .AutoWireNonPublicProperties()
-                .SingleInstance();
+
+            //I use the globalConfiguration instead because to use this i need to register every used class in here which is so tedious.
+            //builder.RegisterInstance(Configuration)
+            //    .As<IConfiguration>()
+            //    .PropertiesAutowired()
+            //    .AutoWireNonPublicProperties()
+            //    .SingleInstance();
             builder.RegisterType<Helpers.SimpleFileLogger>()
                 .AsImplementedInterfaces()
                 .PropertiesAutowired()

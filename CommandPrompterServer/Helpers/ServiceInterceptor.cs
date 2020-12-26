@@ -11,60 +11,63 @@ using System.Threading.Tasks;
 
 namespace CommandPrompterServer.Helpers
 {
+    /// <summary>
+    /// The service interceptor works before each action of service.
+    /// </summary>
     public class ServiceInterceptor : BaseInterceptor
     {
         private bool firstRun = true;
-        private IConfiguration _configuration { get; set; }
         private ILogger _logger { get; set; }
         public override event Action<IInvocation> HandlerBeforeEvent;
         public override event Action<IInvocation> HandlerAfterEvent;
         public override event Action<IInvocation> HandlerErrorEvent;
 
+        /// <summary>
+        /// Intercept all the services
+        /// </summary>
+        /// <param name="invocation"></param>
         public override void Intercept(IInvocation invocation)
         {
             
             try
             {
+                var context = DbContextHolder.Context;
                 HandlerBeforeEvent?.Invoke(invocation);
-                using (var context = new CommandPrompterDbContext(_configuration))
+                if (firstRun)
                 {
-                    if (firstRun)
-                    {
-                        context.Database.EnsureCreated();
-                        firstRun = false;
-                    }
-                    var strategy = context.Database.CreateExecutionStrategy();
-                    strategy.Execute(() =>
-                    {
-                        using (var context = new CommandPrompterDbContext(_configuration))
-                        {
-                            using (var transaction = context.Database.BeginTransaction())
-                            {
-                                try
-                                {
-                                    invocation.Proceed();
-                                    context.SaveChanges();
-                                    transaction.Commit();
-                                }catch(InnerException es)
-                                {
-                                    transaction.Rollback();
-                                    _logger.Log(es.ToString());
-                                }catch(Exception es)
-                                {
-                                    try
-                                    {
-                                        transaction.Rollback();
-                                    }
-                                    catch(Exception inneres)
-                                    {
-                                        //do nothing.
-                                    }
-                                    _logger.Log(es.ToString());
-                                }
-                            }
-                        }
-                    });
+                    context.Database.EnsureCreated();
+                    firstRun = false;
                 }
+                var strategy = context.Database.CreateExecutionStrategy();
+                strategy.Execute(() =>
+                {
+                    using (var transaction = context.Database.BeginTransaction())
+                    {
+                        try
+                        {
+                            invocation.Proceed();
+                            context.SaveChanges();
+                            transaction.Commit();
+                        }
+                        catch (InnerException es)
+                        {
+                            transaction.Rollback();
+                            _logger.Log(es.ToString());
+                        }
+                        catch (Exception es)
+                        {
+                            try
+                            {
+                                transaction.Rollback();
+                            }
+                            catch (Exception inneres)
+                            {
+                                //do nothing.
+                            }
+                            _logger.Log(es.ToString());
+                        }
+                    }
+                });
                 HandlerAfterEvent?.Invoke(invocation);
 
             }

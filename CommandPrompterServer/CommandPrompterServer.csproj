@@ -27,11 +27,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Managers\Interfaces\" />
-    <Folder Include="Managers\Implementations\" />
     <Folder Include="Attributes\" />
     <Folder Include="Jobs\" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 
 </Project>

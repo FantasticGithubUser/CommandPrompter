@@ -1,5 +1,7 @@
 ﻿using CommandPrompterServer.Helpers;
+using CommandPrompterServer.Models.Dao;
 using CommandPrompterServer.Services;
+using CommandPrompterServer.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +17,7 @@ namespace CommandPrompterServer.Controllers
     {
         public IBaseService _service { get; set; }
 
-
+        public IUserService _userService { get; set; }
         /// <summary>
         /// Get weather infomations
         /// </summary>
@@ -26,8 +28,17 @@ namespace CommandPrompterServer.Controllers
         public async Task<IEnumerable<string>> Get()
         {
             var accessToken = await HttpContext.GetTokenAsync("access_token");
-            _service.DoSomething();
+            //_service.DoSomething();
+            
             return new string[] { accessToken,"Successed!" };
         }
+
+        [HttpPut]
+        [AllowAnonymous]
+        public User Put([FromBody] User user)
+        {
+            return _userService.AddNewUser(user);
+        }
+
     }
 }

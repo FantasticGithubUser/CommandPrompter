@@ -7,15 +7,20 @@ using System.IO;
 
 namespace CommandPrompterServer.Helpers
 {
+    /// <summary>
+    /// Mock logger.
+    /// </summary>
     public class SimpleFileLogger : ILogger
     {
-        private IConfiguration _configuration { get; set; }
         private static SimpleFileLogger Instance = null;
+
+        /// <summary>
+        /// Just like a mock logger. Log all output into single file.
+        /// </summary>
         public SimpleFileLogger()
         {
             if (Instance == null)
             {
-                //logPosition = _configuration["LogPosition"];
                 Instance = this;
             }
         }
@@ -25,7 +30,7 @@ namespace CommandPrompterServer.Helpers
         private static string logPosition;
         public void Log(string message)
         {
-            logPosition = _configuration["LogPosition"];
+            logPosition = GlobalConfiguration.LogPosition;
             Instance.WriteToFile(message);
         }
 

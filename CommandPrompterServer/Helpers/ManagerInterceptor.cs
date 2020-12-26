@@ -14,7 +14,7 @@ namespace CommandPrompterServer.Helpers
 
         public override void Intercept(IInvocation invocation)
         {
-            throw new NotImplementedException();
+            invocation.Proceed();
         }
     }
 }

@@ -3,8 +3,7 @@ using CommandPrompterServer.Helpers;
 
 namespace CommandPrompterServer.Services.Interfaces
 {
-    [Intercept(typeof(ServiceInterceptor))]
-    public interface IDatabaseService
+    public interface IDatabaseService : IBaseService
     {
         void EnsureClearDatabase();
         void EnsureCreateDatabase();

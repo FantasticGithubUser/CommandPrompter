@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CommandPrompterServer.Helpers;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,6 @@ namespace CommandPrompterServer.Models.Dao
     /// </summary>
     public class CommandPrompterDbContext : DbContext
     {
-        private IConfiguration _configuration { get; set; }
         #region DbSets
         /// <summary>
         /// Users table
@@ -26,14 +26,14 @@ namespace CommandPrompterServer.Models.Dao
         public DbSet<ChainedCommandParameter> ChainedCommandParameters { get; set; }
 
         #endregion DbSets
-        public CommandPrompterDbContext(IConfiguration configuration)
+        public CommandPrompterDbContext()
         {
-            _configuration = configuration;
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(_configuration["ConnectionString"], (builder) =>
+            optionsBuilder.UseSqlServer(GlobalConfiguration.ConnectionString, (builder) =>
             {
                 builder.EnableRetryOnFailure();
             });
