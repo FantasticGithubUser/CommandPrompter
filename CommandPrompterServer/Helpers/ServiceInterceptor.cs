@@ -1,6 +1,7 @@
 ﻿using Castle.DynamicProxy;
 using CommandPrompterServer.Exceptions;
 using CommandPrompterServer.Models.Dao;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -21,6 +22,7 @@ namespace CommandPrompterServer.Helpers
 
         public override void Intercept(IInvocation invocation)
         {
+            
             try
             {
                 HandlerBeforeEvent?.Invoke(invocation);
