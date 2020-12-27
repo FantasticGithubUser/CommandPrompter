@@ -42,8 +42,15 @@ namespace CommandPrompterServer.Managers
             var ret = from item in context.Set<T>() where item.Id == entity.Id select item;
             if (ret != null)
             {
-                context.Set<T>().Update(entity);
-                return entity;
+                foreach(var prop in ret.FirstOrDefault().GetType().GetProperties())
+                {
+                    if (!prop.GetType().IsSubclassOf(typeof(MetaDao)))
+                    {
+                        prop.SetValue(ret.FirstOrDefault(), prop.GetValue(entity));
+                    }
+                }
+                context.Set<T>().Update(ret.FirstOrDefault());
+                return ret.FirstOrDefault();
             }
             return null;
         }

@@ -4,6 +4,7 @@ using CommandPrompterServer.Models.Dto;
 using CommandPrompterServer.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace CommandPrompterServer.Controllers
 {
@@ -32,9 +33,10 @@ namespace CommandPrompterServer.Controllers
         [HttpPut]
         [Route("ValidateUserInfo")]
         [Authorize]
-        public bool ValidateUser([FromBody] UserRequestDto user)
+        public UserResponseDto ValidateUser([FromBody] UserRequestDto user)
         {
-            return _userService.ValidateUser(user.Username, user.Password) == null ? false : true;
+            var ret = _userService.ValidateUser(user.Username, user.Password);
+            return _mapper.Map<UserResponseDto>(ret);
         }
 
         [HttpGet]
@@ -68,5 +70,16 @@ namespace CommandPrompterServer.Controllers
             return _mapper.Map<UserResponseDto>(user);
         }
 
+        /// <summary>
+        /// Test function
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetAllUsers")]
+        [Authorize]
+        public List<User> GetAllUsers()
+        {
+            return _userService.GetAllEntities();
+        }
     }
 }

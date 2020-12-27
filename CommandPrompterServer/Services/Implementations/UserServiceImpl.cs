@@ -13,7 +13,10 @@ namespace CommandPrompterServer.Services
         {
             _userManager.ActivateUser(id);
         }
-
+        public override User UpdateEntity(User entity)
+        {
+            return base.UpdateEntity(entity);
+        }
         public override User AddNewEntity(User entity)
         {
             return _userManager.AddNewEntity(entity);

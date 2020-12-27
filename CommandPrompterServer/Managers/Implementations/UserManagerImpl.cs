@@ -68,7 +68,7 @@ namespace CommandPrompterServer.Managers
 
         public User ValidateUserInfo(string username, string password)
         {
-            var ret = from user in context.Users where user.Deactivated == false && user.Username == username && user.Password == user.Password select user;
+            var ret = from user in context.Users where user.Deactivated == false && user.Username == username && user.Password == password select user;
             if (ret != null && ret.Count() != 0)
                 return ret.FirstOrDefault<User>();
             return null;
