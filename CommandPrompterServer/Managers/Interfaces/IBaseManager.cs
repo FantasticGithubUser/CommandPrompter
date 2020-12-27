@@ -1,6 +1,7 @@
 ﻿using Autofac.Extras.DynamicProxy;
 using CommandPrompterServer.Helpers;
 using CommandPrompterServer.Models.Dao;
+using System.Collections.Generic;
 
 namespace CommandPrompterServer.Managers
 {
@@ -19,13 +20,6 @@ namespace CommandPrompterServer.Managers
         T GetEntityById(string id);
 
         /// <summary>
-        /// Get entity by id ( deleted entries will be filtered out )
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        T GetEneityByIdFilterOutDeleted(string id);
-
-        /// <summary>
         /// Add a new entity into database
         /// </summary>
         /// <param name="entity"></param>
@@ -37,7 +31,7 @@ namespace CommandPrompterServer.Managers
         /// </summary>
         /// <param name="eneity"></param>
         /// <returns></returns>
-        T UpdateEntity(T eneity);
+        T UpdateEntity(T entity);
 
         /// <summary>
         /// Delete an entity already exists in database
@@ -45,6 +39,12 @@ namespace CommandPrompterServer.Managers
         /// <param name="id"></param>
         /// <returns></returns>
         T DeleteEntity(string id);
+
+        /// <summary>
+        /// Return all entries in database
+        /// </summary>
+        /// <returns></returns>
+        List<T> GetAllEntities();
 
     }
 }

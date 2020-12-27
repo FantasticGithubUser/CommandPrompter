@@ -1,5 +1,7 @@
-﻿using CommandPrompterServer.Models.Dto;
-using CommandPrompterServer.Services.Interfaces;
+﻿using CommandPrompterServer.Helpers;
+using CommandPrompterServer.Models.Dto;
+using CommandPrompterServer.Services;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -17,20 +19,17 @@ namespace CommandPrompterServer.Controllers
     [Route("[controller]")]
     public class LoginController : Controller
     {
-        public LoginController(IConfiguration configuration)
+        public LoginController()
         {
-            _configuration = configuration;
         }
-
-        public IConfiguration _configuration { get; }
-        private IDatabaseService _databaseService { get; set; }
+        private IUserService _userService { get; set; }
         private string BuildJWTToken()
         {
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtToken:SecretKey"]));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(GlobalConfiguration.JwtToken["SecretKey"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var issuer = _configuration["JwtToken:Issuer"];
-            var audience = _configuration["JwtToken:Audience"];
-            var jwtValidity = DateTime.Now.AddMinutes(Convert.ToDouble(_configuration["JwtToken:TokenExpiry"]));
+            var issuer = GlobalConfiguration.JwtToken["Issuer"];
+            var audience = GlobalConfiguration.JwtToken["Audience"];
+            var jwtValidity = DateTime.Now.AddMinutes(Convert.ToDouble(GlobalConfiguration.JwtToken["TokenExpiry"]));
 
             var token = new JwtSecurityToken(issuer,
               audience,
@@ -41,19 +40,39 @@ namespace CommandPrompterServer.Controllers
         }
         private bool Authenticate(LoginModel login)
         {
-            bool validUser = false;
-            var username = _configuration["AuthLogin:Username"];
-            var password = _configuration["AuthLogin:Password"];
-            if (login.Username == username && login.Password == password)
-           {
-                validUser = true;
+            Models.Dao.User validUser = null;
+            if (login.Username == GlobalConfiguration.Administrator.Username && login.Password == GlobalConfiguration.Administrator.Password)
+            {
+                AccountHolder.isAdmin.Value = true;
+                AccountHolder.user.Value = new Models.Dao.User()
+                {
+                    Id = "Administrator",
+                    Username = GlobalConfiguration.Administrator.Username,
+                    Password = GlobalConfiguration.Administrator.Password
+                };
+                validUser = AccountHolder.User;
             }
-            return validUser;
+            else
+            {
+                validUser = _userService.ValidateUser(login.Username, login.Password);
+                if (validUser != null)
+                {
+                    AccountHolder.user.Value = validUser;
+                }
+            }
+           
+            return validUser!=null;
         }
 
-        [AllowAnonymous]
+        /// <summary>
+        /// User login interface, return the jwt token with prefix "Bearer "
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns></returns>
         [HttpPost]
-        public IActionResult CreateToken([FromBody] LoginModel login)
+        [Route("Login")]
+        [AllowAnonymous]
+        public IActionResult Login([FromBody] LoginModel login)
         {
             if (login == null) return Unauthorized();
             string tokenString = string.Empty;
@@ -61,24 +80,25 @@ namespace CommandPrompterServer.Controllers
             if (validUser)
             {
                 tokenString = BuildJWTToken();
+                AccountHolder.token.Value = tokenString;
             }
             else
             {
                 return Unauthorized();
             }
-            return Ok(new { Token = tokenString });
+            return Ok(new { Token = "Bearer "+tokenString });
         }
 
         /// <summary>
         /// Clear the whole database for test.
         /// </summary>
         /// <returns></returns>
-        [AllowAnonymous]
         [HttpGet]
         [Route("ClearDatabase")]
+        [Authorize]
         public IActionResult ClearDatabase()
         {
-            _databaseService.EnsureClearDatabase();
+            DbContextHolder.Context.Database.EnsureDeleted();
             return Ok("Database Cleared");
         }
 
@@ -86,13 +106,26 @@ namespace CommandPrompterServer.Controllers
         /// Create the whole database for test.
         /// </summary>
         /// <returns></returns>
-        [AllowAnonymous]
         [HttpGet]
         [Route("CreateDatabase")]
+        [Authorize]
         public IActionResult CreateDatabase()
         {
-            _databaseService.EnsureCreateDatabase();
+            DbContextHolder.Context.Database.EnsureCreated();
             return Ok("Database Created");
+        }
+
+        /// <summary>
+        /// Get tokens
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetToken")]
+        [Authorize]
+        public async Task<IEnumerable<string>> Get()
+        {
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+            return new string[] { accessToken, "Successed!" };
         }
     }
 }

@@ -18,27 +18,64 @@ namespace CommandPrompterServer.Models.Dao
         /// Users table
         /// </summary>
         public DbSet<User> Users { get; set; }
+
+        /// <summary>
+        /// Plateform Table
+        /// </summary>
         public DbSet<Plateform> Plateforms { get; set; }
+
+        /// <summary>
+        /// Command Table
+        /// </summary>
         public DbSet<Command> Commands { get; set; }
+
+        /// <summary>
+        /// CommandParameter Table
+        /// </summary>
         public DbSet<CommandParameter> CommandParameters { get; set; }
+
+        /// <summary>
+        /// CommandChain Table
+        /// </summary>
         public DbSet<CommandChain> CommandChains { get; set; }
+
+        /// <summary>
+        /// ChainedCommand Table
+        /// </summary>
         public DbSet<ChainedCommand> ChainedCommands { get; set; }
+
+        /// <summary>
+        /// ChainedCommandParameter Table
+        /// </summary>
         public DbSet<ChainedCommandParameter> ChainedCommandParameters { get; set; }
 
         #endregion DbSets
+        /// <summary>
+        /// Does nothing.
+        /// </summary>
         public CommandPrompterDbContext()
         {
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="optionsBuilder"></param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(GlobalConfiguration.ConnectionString, (builder) =>
             {
                 builder.EnableRetryOnFailure();
             });
+
+            base.OnConfiguring(optionsBuilder);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="builder"></param>
         protected override void OnModelCreating(ModelBuilder builder)
         {
 
@@ -52,6 +89,8 @@ namespace CommandPrompterServer.Models.Dao
 
             foreach (var fk in cascadeFKs)
                 fk.DeleteBehavior = DeleteBehavior.Restrict;
+
+            base.OnModelCreating(builder);
         }
     }
 }

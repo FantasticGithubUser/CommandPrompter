@@ -1,0 +1,12 @@
+2020/12/27 7:49:39: System.InvalidOperationException: The configured execution strategy 'SqlServerRetryingExecutionStrategy' does not support user-initiated transactions. Use the execution strategy returned by 'DbContext.Database.CreateExecutionStrategy()' to execute all the operations in the transaction as a retriable unit.
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.OnFirstExecution()
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   at CommandPrompterServer.Managers.UserManagerImpl.ValidateUserInfo(String username, String password) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\UserManagerImpl.cs:line 69
+   at Castle.Proxies.Invocations.IUserManager_ValidateUserInfo.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18

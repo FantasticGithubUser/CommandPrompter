@@ -7,7 +7,14 @@ namespace CommandPrompterServer.Models.Dto
 {
     public class LoginModel
     {
+        /// <summary>
+        /// Login username
+        /// </summary>
         public string Username { get; set; }
+
+        /// <summary>
+        /// Login password
+        /// </summary>
         public string Password { get; set; }
     }
 }

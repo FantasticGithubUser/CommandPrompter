@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommandPrompterServer.Models.Dao;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -15,7 +16,10 @@ namespace CommandPrompterServer.Helpers
         /// This mechanism can ensure that each thread has it's own duplication of this object, which will not be interfered.
         /// We not make this variable readonly and private is for the reason i need to further more inject the user login token into this variable.
         /// </summary>
-        public static ThreadLocal<string> userId;
+        public static ThreadLocal<User> user;
+        public static ThreadLocal<bool> isAdmin;
+        public static ThreadLocal<string> token;
+
         private AccountHolder()
         {
 
@@ -23,12 +27,21 @@ namespace CommandPrompterServer.Helpers
         
         static AccountHolder()
         {
-            userId = new ThreadLocal<string>( () =>"");
+            user = new ThreadLocal<User>( () => null);
+            isAdmin = new ThreadLocal<bool>(() => false);
+            token = new ThreadLocal<string>(() => "");
         }
 
         /// <summary>
         /// Just offered a convenient approach to access the user id.
         /// </summary>
-        public static string UserId => userId.Value; 
+        public static User User => user.Value;
+
+        /// <summary>
+        /// Just offered a convenient approach to access the user admin flag.
+        /// </summary>
+        public static bool IsAdmin => isAdmin.Value;
+
+        public static string Token => token.Value;
     }
 }

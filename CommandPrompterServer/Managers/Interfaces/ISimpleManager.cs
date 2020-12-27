@@ -4,6 +4,6 @@ namespace CommandPrompterServer.Managers
 {
     public interface ISimpleManager<T> : IBaseManager<T> where T: SimpleDao<T>, new() 
     {
-
+        T RemoveEntity(string id);
     }
 }

@@ -1,8 +1,6 @@
 ﻿using Castle.DynamicProxy;
+using CommandPrompterServer.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CommandPrompterServer.Helpers
 {
@@ -12,9 +10,21 @@ namespace CommandPrompterServer.Helpers
         public override event Action<IInvocation> HandlerAfterEvent;
         public override event Action<IInvocation> HandlerErrorEvent;
 
+        private ILogger _logger { get; set; }
         public override void Intercept(IInvocation invocation)
         {
-            invocation.Proceed();
+            try
+            {
+                invocation.Proceed();
+            }catch(InnerException inneres)
+            {
+                _logger.Log(inneres.ToString());
+                HandlerErrorEvent?.Invoke(invocation);
+            }catch(Exception es)
+            {
+                _logger.Log(es.ToString());
+                HandlerErrorEvent?.Invoke(invocation);
+            }
         }
     }
 }

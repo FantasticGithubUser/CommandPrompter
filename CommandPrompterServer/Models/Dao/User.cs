@@ -53,5 +53,11 @@ namespace CommandPrompterServer.Models.Dao
         /// </summary>
         [Column("DeactivatedTime")]
         public DateTime? DeactivatedTime { get; set; }
+
+        [Column("RegisterTime")]
+        public DateTime? RegisterTime { get; set; }
+
+        [Column("LastLoginTime")]
+        public DateTime? LastLoginTime { get; set; }
     }
 }
