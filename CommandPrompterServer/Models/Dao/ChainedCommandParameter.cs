@@ -12,7 +12,7 @@ namespace CommandPrompterServer.Models.Dao
         public string ChainedCommandId { get; set; }
 
         [ForeignKey("ChainedCommandId")]
-        public ChainedCommand ChainedCommand { get; set; }
+        public virtual ChainedCommand ChainedCommand { get; set; }
 
         [MaxLength(36)]
         [Column("CommandParameterId")]
@@ -20,7 +20,7 @@ namespace CommandPrompterServer.Models.Dao
         public string CommandParameterId { get; set; }
 
         [ForeignKey("CommandParameterId")]
-        public CommandParameter CommandParameter { get; set; }
+        public virtual CommandParameter CommandParameter { get; set; }
 
         [Required]
         [Column("ParameterOrder")]

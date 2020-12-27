@@ -13,6 +13,14 @@ namespace CommandPrompterServer.Models.Dao
     public abstract class SimpleDao<T> : BaseDao<T> where T : class, new()
     {
         /// <summary>
+        /// SeriesId will is invariant even though the entity is updated.
+        /// </summary>
+        [Column("SeriesId")]
+        [MaxLength(36)]
+        [Required]
+        public string SeriesId { get; set; }
+
+        /// <summary>
         /// The creator user id
         /// </summary>
         [MaxLength(36)]
@@ -39,7 +47,7 @@ namespace CommandPrompterServer.Models.Dao
         /// Reference to the last Simple dao.
         /// </summary>
         [ForeignKey("LastVersionId")]
-        public T LastSimpleDao { get; set; }
+        public virtual T LastSimpleDao { get; set; }
 
 #nullable enable
         /// <summary>
@@ -70,12 +78,12 @@ namespace CommandPrompterServer.Models.Dao
         /// The user deleted this entry
         /// </summary>
         [ForeignKey("DeletedBy")]
-        public User DeletedByUser { get; set; }
+        public virtual User DeletedByUser { get; set; }
 
         /// <summary>
         /// The user created the entry
         /// </summary>
         [ForeignKey("CreatorId")]
-        public User CreatorUser { get; set; }
+        public virtual User CreatorUser { get; set; }
     }
 }

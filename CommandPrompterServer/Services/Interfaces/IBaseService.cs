@@ -1,14 +1,23 @@
-﻿using Autofac.Extras.DynamicProxy;
-using CommandPrompterServer.Helpers;
+﻿using CommandPrompterServer.Models.Dao;
+using System.Collections.Generic;
 
 namespace CommandPrompterServer.Services
 {
     /// <summary>
-    /// The base service, enabled the global interceptor of all services.
+    /// The base service with basic data operation function.
     /// </summary>
-    [Intercept(typeof(ServiceInterceptor))]
-    public interface IBaseService
+    /// <typeparam name="T"></typeparam>
+    public interface IBaseService<T> : IMetaService where T : BaseDao<T>, new()
     {
+        T GetEntityById(string id);
+
+        T AddNewEntity(T entity);
+
+        T UpdateEntity(T entity);
+
+        T DeleteEntity(string id);
+
+        List<T> GetAllEntities();
 
     }
 }

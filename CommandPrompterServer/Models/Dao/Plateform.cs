@@ -25,6 +25,6 @@ namespace CommandPrompterServer.Models.Dao
         /// <summary>
         /// Just leave here.
         /// </summary>
-        public List<Plateform> ChildrenPlateforms { get; set; }
+        public virtual List<Plateform> ChildrenPlateforms { get; set; }
     }
 }

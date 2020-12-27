@@ -19,6 +19,7 @@ namespace CommandPrompterServer.Models.Dao
         [Required]
         [Column("Username")]
         public string Username { get; set; }
+
         /// <summary>
         /// The password
         /// </summary>

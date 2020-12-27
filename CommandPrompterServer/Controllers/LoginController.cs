@@ -95,7 +95,7 @@ namespace CommandPrompterServer.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("ClearDatabase")]
-        [Authorize]
+        [AllowAnonymous]
         public IActionResult ClearDatabase()
         {
             DbContextHolder.Context.Database.EnsureDeleted();
@@ -108,7 +108,7 @@ namespace CommandPrompterServer.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("CreateDatabase")]
-        [Authorize]
+        [AllowAnonymous]
         public IActionResult CreateDatabase()
         {
             DbContextHolder.Context.Database.EnsureCreated();

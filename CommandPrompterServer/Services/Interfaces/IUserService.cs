@@ -3,16 +3,9 @@ using System.Collections.Generic;
 
 namespace CommandPrompterServer.Services
 {
-    public interface IUserService : IBaseService
+    public interface IUserService : IBaseService<User>
     {
-        List<User> GetAllUsers();
-
         List<User> GetAllActivatedUsers();
-        User AddNewUser(User user);
-
-        User UpdateUser(User user);
-
-        User DeleteUser(string id);
 
         User ValidateUser(string username, string password);
 

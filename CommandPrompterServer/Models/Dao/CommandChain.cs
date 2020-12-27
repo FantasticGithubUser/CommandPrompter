@@ -15,7 +15,7 @@ namespace CommandPrompterServer.Models.Dao
         public string PlateformId { get; set; }
 
         [ForeignKey("PlateformId")]
-        public Plateform Plateform { get; set; }
+        public virtual Plateform Plateform { get; set; }
 
         [MaxLength(255)]
         [Column("Name")]
@@ -26,7 +26,7 @@ namespace CommandPrompterServer.Models.Dao
         [Column("Description")]
         public string Description { get; set; }
 
-        public List<ChainedCommand> ChainedCommands { get; set; }
+        public virtual List<ChainedCommand> ChainedCommands { get; set; }
 
 
     }

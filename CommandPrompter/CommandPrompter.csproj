@@ -6,4 +6,13 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\Pages\" />
+    <Folder Include="Resources\ViewModels\" />
+    <Folder Include="Resources\ResourceDictionaries\" />
+    <Folder Include="Resources\ValueConverters\" />
+    <Folder Include="Resources\Controls\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+
 </Project>

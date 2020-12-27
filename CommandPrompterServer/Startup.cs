@@ -25,6 +25,8 @@ using Microsoft.OpenApi.Models;
 using CommandPrompterServer.Helpers;
 using CommandPrompterServer.Models.Dao;
 using CommandPrompterServer.Services;
+using AutoMapper;
+using CommandPrompterServer.Models;
 
 namespace CommandPrompterServer
 {
@@ -123,6 +125,18 @@ namespace CommandPrompterServer
         /// <param name="builder"></param>
         public void ConfigureContainer(ContainerBuilder builder)
         {
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfiles());
+            });
+            IMapper mapper = mapperConfig.CreateMapper();
+
+            builder.RegisterInstance(mapper)
+                .As<IMapper>()
+                .PropertiesAutowired()
+                .AutoWireNonPublicProperties()
+                .SingleInstance();
+
             // Register your own things directly with Autofac
             builder.RegisterType<ServiceInterceptor>()
                 .PropertiesAutowired()
@@ -146,7 +160,7 @@ namespace CommandPrompterServer
                 .SingleInstance();
 
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
-                .Where(t => t.Name.EndsWith("Impl"))
+                .Where(t => t.Name.Contains("Impl"))
                 .AutoWireNonPublicProperties()
                 .AsImplementedInterfaces()
                 .EnableInterfaceInterceptors()

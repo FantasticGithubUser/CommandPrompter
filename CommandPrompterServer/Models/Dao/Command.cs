@@ -17,7 +17,7 @@ namespace CommandPrompterServer.Models.Dao
         public string PlateformId { get; set; }
 
         [ForeignKey("PlateformId")]
-        public Plateform Plateform { get; set; }
+        public virtual Plateform Plateform { get; set; }
         /// <summary>
         /// The command description
         /// </summary>
@@ -43,6 +43,6 @@ namespace CommandPrompterServer.Models.Dao
         /// <summary>
         /// The CommandParameters
         /// </summary>
-        public List<CommandParameter> CommandParameteres { get; set; }
+        public virtual List<CommandParameter> CommandParameteres { get; set; }
     }
 }

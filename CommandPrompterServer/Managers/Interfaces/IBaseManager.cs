@@ -1,16 +1,13 @@
-﻿using Autofac.Extras.DynamicProxy;
-using CommandPrompterServer.Helpers;
-using CommandPrompterServer.Models.Dao;
+﻿using CommandPrompterServer.Models.Dao;
 using System.Collections.Generic;
 
 namespace CommandPrompterServer.Managers
 {
     /// <summary>
-    /// The basemanager enabled the global intercept of all managers.
     /// The purpose of setting manager is to implement some convenient function on entities.
     /// </summary>
-    [Intercept(typeof(ManagerInterceptor))]
-    public interface IBaseManager<T> where T : BaseDao<T>, new()
+    /// <typeparam name="T"></typeparam>
+    public interface IBaseManager<T> : IMetaManager<T> where T : BaseDao<T>, new()
     {
         /// <summary>
         /// Get entity by id ( all entries will be searched )

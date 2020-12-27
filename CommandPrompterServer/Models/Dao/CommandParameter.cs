@@ -23,7 +23,7 @@ namespace CommandPrompterServer.Models.Dao
         /// The command the parameter belongs to
         /// </summary>
         [ForeignKey("CommandId")]
-        public Command Command { get; set; }
+        public virtual Command Command { get; set; }
 
         /// <summary>
         /// The order this parameter in the command, starts with 0

@@ -6,7 +6,7 @@ using CommandPrompterServer.Models.Dao;
 
 namespace CommandPrompterServer.Managers
 {
-    public class BaseManager<T> : IBaseManager<T> where T : BaseDao<T>, new()
+    public class BaseManagerImpl<T> : IBaseManager<T> where T : BaseDao<T>, new()
     {
         protected CommandPrompterDbContext context = DbContextHolder.Context;
         public virtual T AddNewEntity(T entity)

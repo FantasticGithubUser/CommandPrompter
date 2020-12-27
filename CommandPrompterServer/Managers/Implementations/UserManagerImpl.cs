@@ -6,7 +6,7 @@ using System;
 
 namespace CommandPrompterServer.Managers
 {
-    public class UserManagerImpl : BaseManager<User>, IUserManager
+    public class UserManagerImpl : BaseManagerImpl<User>, IUserManager
     {
         /// <summary>
         /// User need add the RegisterTime, so it's been overridden here. Only Username, password, email are required.

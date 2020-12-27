@@ -64,11 +64,12 @@ namespace CommandPrompterServer.Models.Dao
         /// <param name="optionsBuilder"></param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(GlobalConfiguration.ConnectionString, (builder) =>
+            
+            optionsBuilder.UseLazyLoadingProxies()
+                .UseSqlServer(GlobalConfiguration.ConnectionString, (builder) =>
             {
                 builder.EnableRetryOnFailure();
             });
-
             base.OnConfiguring(optionsBuilder);
         }
 

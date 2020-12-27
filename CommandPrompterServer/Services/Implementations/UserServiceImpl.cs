@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace CommandPrompterServer.Services
 {
-    public class UserServiceImpl : IUserService
+    public class UserServiceImpl : BaseServiceImpl<User>, IUserService
     {
         private IUserManager _userManager { get; set; }
 
@@ -14,9 +14,9 @@ namespace CommandPrompterServer.Services
             _userManager.ActivateUser(id);
         }
 
-        public User AddNewUser(User user)
+        public override User AddNewEntity(User entity)
         {
-            return _userManager.AddNewEntity(user);
+            return _userManager.AddNewEntity(entity);
         }
 
         public void DeactivateUser(string id)
@@ -24,29 +24,14 @@ namespace CommandPrompterServer.Services
             _userManager.DeactivateUser(id);
         }
 
-        public User DeleteUser(string id)
-        {
-            return _userManager.DeleteEntity(id);
-        }
-
         public List<User> GetAllActivatedUsers()
         {
             return _userManager.GetAllActivatedUsers();
         }
 
-        public List<User> GetAllUsers()
-        {
-            return _userManager.GetAllEntities();
-        }
-
         public void UpdateLastLoginTime(string id)
         {
             _userManager.UpdateLastLoginTime(id);
-        }
-
-        public User UpdateUser(User user)
-        {
-            return _userManager.UpdateEntity(user);
         }
 
         public User ValidateUser(string username, string password)

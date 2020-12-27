@@ -1,9 +1,10 @@
-﻿using CommandPrompterServer.Models.Dao;
+﻿
+using CommandPrompterServer.Models.Dao;
 using System.Collections.Generic;
 
-namespace CommandPrompterServer.Managers
+namespace CommandPrompterServer.Services
 {
-    public interface ISimpleManager<T> : IBaseManager<T> where T: SimpleDao<T>, new() 
+    public interface ISimpleService<T> : IBaseService<T> where T : SimpleDao<T>, new()
     {
         T GetNewestEntityById(string id);
         T GetLastVersion(string id);

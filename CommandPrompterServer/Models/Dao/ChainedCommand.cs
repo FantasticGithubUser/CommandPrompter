@@ -18,7 +18,7 @@ namespace CommandPrompterServer.Models.Dao
         /// The navigation property of the belonged CommandChain
         /// </summary>
         [ForeignKey("CommandChainId")]
-        public CommandChain CommandChain { get; set; }
+        public virtual CommandChain CommandChain { get; set; }
 
         /// <summary>
         /// The command this chainedCommand relates to
@@ -32,7 +32,7 @@ namespace CommandPrompterServer.Models.Dao
         /// The navigation property of related command.
         /// </summary>
         [ForeignKey("CommandId")]
-        public Command Command { get; set; }
+        public virtual Command Command { get; set; }
 
         /// <summary>
         /// The command order in the commandChain
@@ -44,7 +44,7 @@ namespace CommandPrompterServer.Models.Dao
         /// <summary>
         /// The pareameters links to the command.
         /// </summary>
-        public List<ChainedCommandParameter> ChainedCommandParameters { get; set; }
+        public virtual List<ChainedCommandParameter> ChainedCommandParameters { get; set; }
 
 
     }
