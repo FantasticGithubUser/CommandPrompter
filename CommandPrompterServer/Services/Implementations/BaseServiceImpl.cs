@@ -7,6 +7,10 @@ namespace CommandPrompterServer.Services
     public class BaseServiceImpl<T> : IBaseService<T> where T : BaseDao<T>, new()
     {
         //Todo: this _baseManager do not get injected while it's the called by the subclass.
+
+        //private IBaseManager<T> _baseManager { get; set; }
+
+        //Fix: Edit on 6:12 28 Des 2020, repalce the original property by field.
         private IBaseManager<T> _baseManager = new BaseManagerImpl<T>();
 
         public virtual T AddNewEntity(T entity)
