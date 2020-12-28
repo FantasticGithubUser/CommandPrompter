@@ -43,6 +43,6 @@ namespace CommandPrompterServer.Models.Dao
         /// <summary>
         /// The CommandParameters
         /// </summary>
-        public virtual List<CommandParameter> CommandParameteres { get; set; }
+        public virtual List<CommandParameter> CommandParameters { get; set; }
     }
 }

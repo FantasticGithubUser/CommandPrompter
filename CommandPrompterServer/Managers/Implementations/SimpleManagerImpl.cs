@@ -51,6 +51,10 @@ namespace CommandPrompterServer.Managers
             entity.CreationTime = DateTime.Now;
             entity.CreatorId = AccountHolder.User.Id;
             entity.Version = 0;//The initial version, add one by one subsequently.
+            entity.LastVersionId = "";
+            entity.Deleted = false;
+            entity.DeletedBy = "";
+            entity.DeletionTime = null;
             context.Set<T>().Add(entity);
             return entity;
         }

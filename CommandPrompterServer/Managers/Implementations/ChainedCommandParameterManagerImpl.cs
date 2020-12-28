@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace CommandPrompterServer.Managers
 {
-    public interface ICommandManager : ISimpleManager<Command>
+    public class ChainedCommandParameterManagerImpl : SimpleManagerImpl<ChainedCommandParameter>, IChainedCommandParameterManager
     {
-        List<CommandParameter> GetAllNewestParametersInOrder(string id);
-
     }
 }

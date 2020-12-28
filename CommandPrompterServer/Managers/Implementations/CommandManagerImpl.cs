@@ -15,7 +15,7 @@ namespace CommandPrompterServer.Managers
         /// <returns></returns>
         public List<CommandParameter> GetAllNewestParametersInOrder(string id)
         {
-            var ret = from item in context.Commands where item.Id == id select context.CommandParameters;
+            var ret = from item in context.Commands where item.Id == id select item.CommandParameters;
             if(ret != null && ret.Count() != 0)
             {
                 var parameters = ret.FirstOrDefault().ToList<CommandParameter>();
@@ -25,6 +25,5 @@ namespace CommandPrompterServer.Managers
             }
             return null;
         }
-
     }
 }
