@@ -5,7 +5,8 @@ namespace CommandPrompterServer.Services
 {
     public class SimpleServiceImpl<T> : BaseServiceImpl<T>, ISimpleService<T> where T : SimpleDao<T>, new()
     {
-        private ISimpleManager<T> _simpleManager { get; set; }
+        //Todo verify if this has same problem like BaseService
+        protected ISimpleManager<T> _simpleManager { get; set; }
 
 
         public virtual List<T> GetAllDistinctEntities()

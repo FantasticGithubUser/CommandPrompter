@@ -1,19 +1,11 @@
-﻿using AutoMapper;
-using CommandPrompterServer.Models.Dao;
-using CommandPrompterServer.Models.Dto;
-using CommandPrompterServer.Services;
+﻿using CommandPrompterServer.Models.Dao;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CommandPrompterServer.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class CommandController : Controller
+    public class CommandController : BaseController
     {
-        private ICommandService _commandService { get; set; }
-        private IMapper _mapper { get; set; }
-
         /// <summary>
         /// Add a new command without command parameters.
         /// </summary>

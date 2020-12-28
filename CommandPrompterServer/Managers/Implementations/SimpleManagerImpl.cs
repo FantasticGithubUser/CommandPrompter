@@ -38,7 +38,7 @@ namespace CommandPrompterServer.Managers
                 ret.FirstOrDefault().Deleted = true;
                 ret.FirstOrDefault().DeletedBy = AccountHolder.User.Id;
                 ret.FirstOrDefault().DeletionTime = DateTime.Now;
-                context.Update(ret);
+                context.Set<T>().Update(ret.FirstOrDefault());
                 return ret.FirstOrDefault();
             }
             return null;

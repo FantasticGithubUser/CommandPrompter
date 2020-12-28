@@ -25,7 +25,7 @@ namespace CommandPrompterServer.Managers
         }
         public void ActivateUser(string id)
         {
-            var ret = from user in context.Users where user.Id == id && user.Deactivated == true select user;
+            var ret = from user in context.Set<User>() where user.Id == id && user.Deactivated == true select user;
             if(ret != null && ret.Count() != 0)
             {
                 ret.FirstOrDefault().Deactivated = false;
@@ -36,7 +36,7 @@ namespace CommandPrompterServer.Managers
 
         public void DeactivateUser(string id)
         {
-            var ret = from user in context.Users where user.Id == id && user.Deactivated == false select user;
+            var ret = from user in context.Set<User>() where user.Id == id && user.Deactivated == false select user;
             if (ret != null && ret.Count() != 0)
             {
                 ret.FirstOrDefault().Deactivated = true;
@@ -47,7 +47,7 @@ namespace CommandPrompterServer.Managers
 
         public List<User> GetAllActivatedUsers()
         {
-            var ret = from user in context.Users where user.Deactivated == false select user;
+            var ret = from user in context.Set<User>() where user.Deactivated == false select user;
             if(ret != null && ret.Count() != 0)
             {
                 return ret.ToList<User>();
@@ -57,7 +57,7 @@ namespace CommandPrompterServer.Managers
 
         public void UpdateLastLoginTime(string id)
         {
-            var ret = from user in context.Users where user.Id == id && user.Deactivated == false select user;
+            var ret = from user in context.Set<User>() where user.Id == id && user.Deactivated == false select user;
             if (ret != null && ret.Count() != 0)
             {
                 ret.FirstOrDefault().LastLoginTime = DateTime.Now;
@@ -67,7 +67,7 @@ namespace CommandPrompterServer.Managers
 
         public User ValidateUserInfo(string username, string password)
         {
-            var ret = from user in context.Users where user.Deactivated == false && user.Username == username && user.Password == password select user;
+            var ret = from user in context.Set<User>() where user.Deactivated == false && user.Username == username && user.Password == password select user;
             if (ret != null && ret.Count() != 0)
                 return ret.FirstOrDefault<User>();
             return null;

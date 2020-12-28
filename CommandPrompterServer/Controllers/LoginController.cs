@@ -1,28 +1,19 @@
 ﻿using CommandPrompterServer.Helpers;
 using CommandPrompterServer.Models.Dto;
-using CommandPrompterServer.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CommandPrompterServer.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class LoginController : Controller
+    public class LoginController : BaseController
     {
-        public LoginController()
-        {
-        }
-        private IUserService _userService { get; set; }
         private string BuildJWTToken()
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(GlobalConfiguration.JwtToken["SecretKey"]));

@@ -8,10 +8,10 @@ namespace CommandPrompterServer.Services
     {
         //Todo: this _baseManager do not get injected while it's the called by the subclass.
 
-        //private IBaseManager<T> _baseManager { get; set; }
+        protected IBaseManager<T> _baseManager { get; set; }
 
         //Fix: Edit on 6:12 28 Des 2020, repalce the original property by field.
-        private IBaseManager<T> _baseManager = new BaseManagerImpl<T>();
+        //private IBaseManager<T> _baseManager = new BaseManagerImpl<T>();
 
         public virtual T AddNewEntity(T entity)
         {
