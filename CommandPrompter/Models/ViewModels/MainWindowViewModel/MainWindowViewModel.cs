@@ -2,23 +2,31 @@
 using CommandPrompter.Models.Dtos;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace CommandPrompter.Models.ViewModels
 {
     public class MainWindowViewModel
     {
-        public static MainWindowViewModel Instance => new MainWindowViewModel();
-
-        private MainWindowViewModel()
+        private Window window;
+        public MainWindowViewModel(Window window)
         {
+            this.window = window;
             Users = new ObservableCollection<User>();
-            var users = HttpRequestHelper.GetAsync<List<User>>(RouteHelper.GetAllUsers);
-            foreach (var item in users.Result)
+            var users = HttpRequestHelper.GetAsync<List<User>>(RouteHelper.GetAllUsers).ContinueWith( res =>
             {
-                Users.Add(item);
-            }
+                foreach (var item in res.Result)
+                {
+                    window.Dispatcher.Invoke(() =>
+                    {
+                        Users.Add(item);
+                    });
+                }
+            });
+            
         }
 
         public ObservableCollection<User> Users { get; set; }
+ 
     }
 }

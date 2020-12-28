@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommandPrompter.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,7 @@ namespace CommandPrompter
         {
             InitializeComponent();
 
-            DataContext = Models.ViewModels.MainWindowViewModel.Instance;
+            DataContext = new MainWindowViewModel(this);
         }
     }
 }
