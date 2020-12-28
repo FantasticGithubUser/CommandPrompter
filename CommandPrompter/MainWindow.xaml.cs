@@ -23,6 +23,8 @@ namespace CommandPrompter
         public MainWindow()
         {
             InitializeComponent();
+
+            DataContext = Models.ViewModels.MainWindowViewModel.Instance;
         }
     }
 }

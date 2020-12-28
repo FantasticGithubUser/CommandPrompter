@@ -76,7 +76,7 @@ namespace CommandPrompterServer.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("GetAllUsers")]
-        [Authorize]
+        [AllowAnonymous]
         public List<User> GetAllUsers()
         {
             return _userService.GetAllEntities();
