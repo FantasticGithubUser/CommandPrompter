@@ -11,6 +11,7 @@ namespace CommandPrompter.Helpers
         private static readonly HttpClient client = new HttpClient();
         private static void AddJWTBearer()
         {
+            client.DefaultRequestHeaders.Remove("Authorization");
             client.DefaultRequestHeaders.Add("Authorization", AccountHolder.Token);
         }
 

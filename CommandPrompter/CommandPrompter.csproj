@@ -8,8 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Resources\Pages\" />
-    <Folder Include="Resources\ResourceDictionaries\" />
-    <Folder Include="Resources\ValueConverters\" />
     <Folder Include="Resources\Controls\" />
   </ItemGroup>
 

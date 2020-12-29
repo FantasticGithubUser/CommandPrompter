@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="EmphasizedRed">#fe2e58</Color>
+    <SolidColorBrush x:Key="EmphasizedRedSolidBrush" Color="{StaticResource EmphasizedRed}"/>
+
+    <Color x:Key="NormalWhite">#ffffff</Color>
+    <SolidColorBrush x:Key="NormalWhiteSolidBrush" Color="{StaticResource NormalWhite}"/>
+
+    <Color x:Key="NormalDark">#000000</Color>
+    <SolidColorBrush x:Key="NormalDarkSolidBrush" Color="{StaticResource NormalDark}"/>
+
+    <Color x:Key="NormalGray">#a8b0bd</Color>
+    <SolidColorBrush x:Key="NormalGraySolidBrush" Color="{StaticResource NormalGray}"/>
+
+    <Color x:Key="LightGray">#e3e2ec</Color>
+    <SolidColorBrush x:Key="LightGraySolidBrush" Color="{StaticResource LightGray}"/>
+
+    <Color x:Key="NormalGreen">#2acb42</Color>
+    <SolidColorBrush x:Key="NormalGreenSolidBrush" Color="{StaticResource NormalGreen}"/>
+
+    <Color x:Key="DarkGreen">#15ff00</Color>
+    <SolidColorBrush x:Key="DarkGreenSolidBrush" Color="{StaticResource DarkGreen}"/>
+
+    <Color x:Key="NormalYellow">#ffc12f</Color>
+    <SolidColorBrush x:Key="NormalYellowSolidBrush" Color="{StaticResource NormalYellow}"/>
+
+    <Color x:Key="DarkYellow">#f6ff00</Color>
+    <SolidColorBrush x:Key="DarkYellowSolidBrush" Color="{StaticResource DarkYellow}"/>
+
+    <Color x:Key="NormalRed">#ff6358</Color>
+    <SolidColorBrush x:Key="NormalRedSolidBrush" Color="{StaticResource NormalRed}"/>
+    
+    <Color x:Key="DarkRed">#ff0000</Color>
+    <SolidColorBrush x:Key="DarkRedSolidBrush" Color="{StaticResource DarkRed}"/>
+</ResourceDictionary>

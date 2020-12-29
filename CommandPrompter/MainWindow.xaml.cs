@@ -27,5 +27,19 @@ namespace CommandPrompter
 
             DataContext = new MainWindowViewModel(this);
         }
+        private void Window_Close(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Window_Minimized(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void Window_Maximized(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Maximized;
+        }
     }
 }

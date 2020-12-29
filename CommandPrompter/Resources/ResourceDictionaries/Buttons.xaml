@@ -1,0 +1,71 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="WindowButton" TargetType="Button">
+        <Setter Property="Margin" Value="0,0,10,0"/>
+        <Setter Property="Width" Value="7.5"/>
+        <Setter Property="MaxWidth" Value="15"/>
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <ContentPresenter>
+                        <ContentPresenter.Content>
+                            <Grid>
+                                <Viewbox x:Name="OuterViewBox" Width="{TemplateBinding Width}" Height="{TemplateBinding Width}" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                                    <Viewbox.RenderTransform>
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5"></ScaleTransform>
+                                    </Viewbox.RenderTransform>
+                                    <Ellipse x:Name="InnerEllipse" Width="{TemplateBinding Width}" Height="{TemplateBinding Width}" Fill="{TemplateBinding Foreground}" Stroke="{TemplateBinding Background}" StrokeThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <Ellipse.Effect>
+                                            <DropShadowEffect BlurRadius="30" ShadowDepth="0" Color="White"/>
+                                        </Ellipse.Effect>
+                                    </Ellipse>
+                                </Viewbox>
+                            </Grid>
+                        </ContentPresenter.Content>
+                    </ContentPresenter>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="OuterViewBox" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" To="1.5" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="OuterViewBox" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" To="1.5" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="OuterViewBox" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="OuterViewBox" Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="InnerEllipse" Storyboard.TargetProperty="(Effect).BlurRadius" To="10" Duration="0:0:0.1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="InnerEllipse" Storyboard.TargetProperty="(Effect).BlurRadius" Duration="0:0:0.1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
