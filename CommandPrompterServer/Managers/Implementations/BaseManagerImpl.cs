@@ -8,7 +8,7 @@ namespace CommandPrompterServer.Managers
 {
     public class BaseManagerImpl<T> : IBaseManager<T> where T : BaseDao<T>, new()
     {
-        protected CommandPrompterDbContext context = DbContextHolder.Context;
+        protected CommandPrompterDbContext context => DbContextHolder.Context;
         public virtual T AddNewEntity(T entity)
         {
             entity.Id = Guid.NewGuid().ToString();
