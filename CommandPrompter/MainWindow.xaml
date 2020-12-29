@@ -44,7 +44,18 @@
             <Button Style="{StaticResource WindowButton}" Background="{StaticResource NormalGreenSolidBrush}" Foreground="{StaticResource DarkGreenSolidBrush}" Click="Window_Maximized"/>
         </StackPanel>
         <Grid Grid.Row="1">
-            
+            <ListView ItemsSource="{Binding Users}" Background="Transparent" Foreground="White" BorderBrush="Transparent">
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Header="Username" DisplayMemberBinding="{Binding Username}"/>
+                            <GridViewColumn Header="Contributes" DisplayMemberBinding="{Binding Contributes}"/>
+                            <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}"/>
+                            <GridViewColumn Header="RegisterTime" DisplayMemberBinding="{Binding RegisterTime}"/>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </Grid>
 
     </Grid>
