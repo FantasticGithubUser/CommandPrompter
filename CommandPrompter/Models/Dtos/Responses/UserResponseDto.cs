@@ -2,7 +2,7 @@
 
 namespace CommandPrompter.Models.Dtos
 {
-    public class User : BaseDto<User>
+    public class UserResponseDto : BaseDto<UserResponseDto>
     {
         public string Username { get; set; }
         public double Contributes { get; set; }

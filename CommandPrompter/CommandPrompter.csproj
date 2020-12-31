@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\Pages\" />
     <Folder Include="Resources\Controls\" />
+    <Folder Include="Tests\" />
   </ItemGroup>
 
   <ItemGroup>

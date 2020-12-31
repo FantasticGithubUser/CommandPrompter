@@ -9,7 +9,7 @@ namespace CommandPrompter.Helpers
     public static class HttpRequestHelper
     {
         private static readonly HttpClient client = new HttpClient();
-        private static void AddJWTBearer()
+        public static void AddJWTBearer()
         {
             client.DefaultRequestHeaders.Remove("Authorization");
             client.DefaultRequestHeaders.Add("Authorization", AccountHolder.Token);
@@ -24,14 +24,14 @@ namespace CommandPrompter.Helpers
 
         public static async Task<T> PostAsync<T>(string address, string jsonContent) where T : class, new()
         {
-            var httpContent = new StringContent(jsonContent);
+            var httpContent = new StringContent(jsonContent,Encoding.UTF8,"application/json");
             var response = await client.PostAsync(address, httpContent);
             return ModelBindingHelper.BindModel<T>(response.Content.ReadAsStringAsync().Result);
         }
 
         public static async Task<T> PutAsync<T>(string address, string jsonContent) where T : class, new()
         {
-            var httpContent = new StringContent(jsonContent);
+            var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
             var response = await client.PutAsync(address, httpContent);
             return ModelBindingHelper.BindModel<T>(response.Content.ReadAsStringAsync().Result);
         }

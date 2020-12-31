@@ -64,7 +64,7 @@ namespace CommandPrompterServer
                 config.SwaggerGeneratorOptions.IgnoreObsoleteActions = true;
                 config.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "test",
+                    Title = "CommandPrompter",
                     Version = "v1"
                 });
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
@@ -189,7 +189,7 @@ namespace CommandPrompterServer
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "test");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "CommandPrompter");
             });
 
             app.UseHttpsRedirection();
