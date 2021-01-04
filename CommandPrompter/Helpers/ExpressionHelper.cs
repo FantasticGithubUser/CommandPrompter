@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CommandPrompter.Helpers
 {
-    public static class ExpressionHelpers
+    public static class ExpressionHelper
     {
         /// <summary>
         /// Compiles an expression and gets the functions return value
