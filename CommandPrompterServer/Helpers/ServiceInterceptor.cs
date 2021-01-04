@@ -16,7 +16,6 @@ namespace CommandPrompterServer.Helpers
     /// </summary>
     public class ServiceInterceptor : BaseInterceptor
     {
-        private bool firstRun = true;
         private ILogger _logger { get; set; }
         public override event Action<IInvocation> HandlerBeforeEvent;
         public override event Action<IInvocation> HandlerAfterEvent;
@@ -33,11 +32,7 @@ namespace CommandPrompterServer.Helpers
             {
                 var context = DbContextHolder.Context;
                 HandlerBeforeEvent?.Invoke(invocation);
-                if (firstRun)
-                {
-                    context.Database.EnsureCreated();
-                    firstRun = false;
-                }
+
                 var strategy = context.Database.CreateExecutionStrategy();
                 strategy.Execute(() =>
                 {

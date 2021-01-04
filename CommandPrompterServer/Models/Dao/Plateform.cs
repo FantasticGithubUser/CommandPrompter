@@ -23,8 +23,21 @@ namespace CommandPrompterServer.Models.Dao
         public string PlateformVersion { get; set; }
 
         /// <summary>
-        /// Just leave here.
+        /// The father plateform
         /// </summary>
-        public virtual List<Plateform> ChildrenPlateforms { get; set; }
+        [MaxLength(36)]
+        [Column("PlateformId")]
+        public string PlateformId { get; set; }
+
+        /// <summary>
+        /// The navigation property of the father plateform id property
+        /// </summary>
+        [ForeignKey("PlateformId")]
+        public virtual Plateform FatherPlateform { get; set; }
+
+        ///// <summary>
+        ///// Just leave here.
+        ///// </summary>
+        //public virtual List<Plateform> ChildrenPlateforms { get; set; }
     }
 }

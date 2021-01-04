@@ -31,5 +31,7 @@ namespace CommandPrompterServer.Controllers
         {
             return _commandService.UpdateEntity(command);
         }
+
+
     }
 }

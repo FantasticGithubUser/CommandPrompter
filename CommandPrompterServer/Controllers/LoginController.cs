@@ -103,9 +103,41 @@ namespace CommandPrompterServer.Controllers
         public IActionResult CreateDatabase()
         {
             DbContextHolder.Context.Database.EnsureCreated();
+            //Initial Test data.
+            InitialData();
             return Ok("Database Created");
         }
 
+        /// <summary>
+        /// Initial Test Data
+        /// </summary>
+        private void InitialData()
+        {
+            var context = DbContextHolder.Context;
+
+            var user = _userService.AddNewEntity(new Models.Dao.User
+            {
+                Username = "test",
+                Password = "test"
+            });
+            AccountHolder.user.Value = user;
+            Models.Dao.Plateform cur = null, last = null;
+            for (int i = 0; i < 10; i++)
+            {
+                cur = _plateformService.AddNewEntity(new Models.Dao.Plateform
+                {
+                    Name = "testForm" + i,
+                    PlateformVersion = "newVersion" + i
+                });
+                if(last != null)
+                {
+                    cur.PlateformId = last.Id;
+                    _plateformService.UpdateEntity(cur);
+                }
+                last = cur;
+            }
+
+        }
         /// <summary>
         /// Get tokens
         /// </summary>

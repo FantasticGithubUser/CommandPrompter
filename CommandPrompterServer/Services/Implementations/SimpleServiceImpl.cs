@@ -8,7 +8,6 @@ namespace CommandPrompterServer.Services
         //Todo verify if this has same problem like BaseService
         protected ISimpleManager<T> _simpleManager { get; set; }
 
-
         public virtual List<T> GetAllDistinctEntities()
         {
             return _simpleManager.GetAllDistinctEntities();

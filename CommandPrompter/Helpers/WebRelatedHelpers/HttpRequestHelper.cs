@@ -12,7 +12,8 @@ namespace CommandPrompter.Helpers
         public static void AddJWTBearer()
         {
             client.DefaultRequestHeaders.Remove("Authorization");
-            client.DefaultRequestHeaders.Add("Authorization", AccountHolder.Token);
+            if(AccountHolder.Token != null)
+                client.DefaultRequestHeaders.Add("Authorization", AccountHolder.Token);
         }
 
         public static async Task<T> GetAsync<T>(string address) where T : class, new()

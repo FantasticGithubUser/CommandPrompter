@@ -51,10 +51,10 @@ namespace CommandPrompterServer.Managers
             entity.CreationTime = DateTime.Now;
             entity.CreatorId = AccountHolder.User.Id;
             entity.Version = 0;//The initial version, add one by one subsequently.
-            entity.LastVersionId = "";
             entity.Deleted = false;
-            entity.DeletedBy = "";
             entity.DeletionTime = null;
+            entity.DeletedBy = null;
+            entity.LastVersionId = null;
             context.Set<T>().Add(entity);
             return entity;
         }
@@ -69,10 +69,10 @@ namespace CommandPrompterServer.Managers
                 newEntity.CreatorId = AccountHolder.User.Id;
                 newEntity.CreationTime = DateTime.Now;
                 newEntity.Deleted = false;
-                newEntity.DeletedBy = "";
                 newEntity.DeletionTime = null;
                 newEntity.Id = Guid.NewGuid().ToString();
                 newEntity.LastVersionId = entity.Id;
+                newEntity.DeletedBy = null;
                 context.Set<T>().Add(newEntity);
                 return newEntity;
             }
