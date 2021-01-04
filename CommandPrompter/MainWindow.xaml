@@ -5,11 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CommandPrompter"
         xmlns:res="clr-namespace:CommandPrompter.Resources"
+        xmlns:control="clr-namespace:CommandPrompter.Resources.Controls"
         mc:Ignorable="d"
         WindowStyle="None"
         AllowsTransparency="True"
         res:WindowBlur.IsEnabled="True"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        FontFamily="{StaticResource FontAwesome}"
+        >
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
             <Setter Property="Template">
@@ -44,18 +47,16 @@
             <Button Style="{StaticResource WindowButton}" Background="{StaticResource NormalGreenSolidBrush}" Foreground="{StaticResource DarkGreenSolidBrush}" Click="Window_Maximized"/>
         </StackPanel>
         <Grid Grid.Row="1">
-            <ListView ItemsSource="{Binding Users}" Background="Transparent" Foreground="White" BorderBrush="Transparent">
-                <ListView.View>
-                    <GridView>
-                        <GridView.Columns>
-                            <GridViewColumn Header="Username" DisplayMemberBinding="{Binding Username}"/>
-                            <GridViewColumn Header="Contributes" DisplayMemberBinding="{Binding Contributes}"/>
-                            <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}"/>
-                            <GridViewColumn Header="RegisterTime" DisplayMemberBinding="{Binding RegisterTime}"/>
-                        </GridView.Columns>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <control:SideMenu Grid.Column="0">
+                
+            </control:SideMenu>
+            <Frame Grid.Column="1" Source="{Binding CurrentPage, Converter={res:PageEnumToStringConverter}}">
+                
+            </Frame>
         </Grid>
 
     </Grid>

@@ -6,7 +6,12 @@
              xmlns:local="clr-namespace:CommandPrompter.Resources.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="70" d:DesignWidth="250">
-    <Grid>
-            
-    </Grid>
+    <Button Style="{StaticResource SideMenuButton}" Command="{Binding openPageCommand}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>
+                    <Run Text="{Binding Icon}"></Run>
+                    <Run Text="{Binding ItemName}"></Run>
+                </TextBlock>
+            </StackPanel>
+        </Button>
 </UserControl>

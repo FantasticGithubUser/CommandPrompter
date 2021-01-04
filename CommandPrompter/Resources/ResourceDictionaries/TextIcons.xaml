@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="Plateform">&#xf108;</sys:String>
+    <sys:String x:Key="Command">&#xf0ae;</sys:String>
+    <sys:String x:Key="ChainedCommand">&#xf0c1;</sys:String>
+
+</ResourceDictionary>

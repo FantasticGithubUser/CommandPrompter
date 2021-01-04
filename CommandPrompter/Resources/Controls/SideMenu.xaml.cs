@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommandPrompter.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,7 @@ namespace CommandPrompter.Resources.Controls
         public SideMenu()
         {
             InitializeComponent();
+            this.DataContext = new SideMenuViewModel();
         }
     }
 }

@@ -11,17 +11,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CommandPrompter.Resources.Controls
+namespace CommandPrompter.Resources.Pages
 {
     /// <summary>
-    /// SideMenuItem.xaml 的交互逻辑
+    /// ErrorPage.xaml 的交互逻辑
     /// </summary>
-    public partial class SideMenuItem : UserControl
+    public partial class ErrorPage : Page
     {
-        public SideMenuItem()
+        public ErrorPage()
         {
             InitializeComponent();
-            
         }
     }
 }

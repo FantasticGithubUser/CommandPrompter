@@ -7,6 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="250">
     <Grid>
-            
+        <ScrollViewer VerticalScrollBarVisibility="Visible" Background="Transparent">
+            <ItemsControl ItemsSource="{Binding SideMenuItems,Mode=TwoWay}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:SideMenuItem/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </UserControl>

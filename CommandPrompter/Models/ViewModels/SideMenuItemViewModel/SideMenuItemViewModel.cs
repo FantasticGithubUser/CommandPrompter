@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommandPrompter.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq.Expressions;
@@ -11,15 +12,26 @@ namespace CommandPrompter.Models.ViewModels
 {
     public class SideMenuItemViewModel :BaseViewModel
     {
-        private object lockObject = new object();
-        public ICommand command { get; private set; }
+        public bool CommandRunning { get; private set; }
+        public ICommand openPageCommand { get; private set; }
 
-        private Type pageType { get; set; }
-        public SideMenuItemViewModel(Type pageType)
+        public string Icon { get; set; }
+        public string ItemName { get; set; }
+
+        private PageEnum page { get; set; }
+        public SideMenuItemViewModel(PageEnum page)
         {
-            if (!pageType.IsSubclassOf(typeof(Page)))
-                throw new ArgumentException($"{pageType.FullName} is not the subclass of {typeof(Page).FullName}!");
-            this.pageType = pageType;
+            this.page = page;
+            openPageCommand = new RelayCommand(async () => await ShowPageAsync());
+
+        }
+
+        private async Task ShowPageAsync()
+        {
+            await RunCommandAsync(() => CommandRunning, async () =>
+            {
+                await PageSwitchHelper.SwitchPage(page);
+            });
         }
 
         
