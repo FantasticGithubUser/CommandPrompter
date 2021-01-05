@@ -54,7 +54,7 @@
             <control:SideMenu Grid.Column="0">
                 
             </control:SideMenu>
-            <Frame Grid.Column="1" Source="{Binding CurrentPage, Converter={res:PageEnumToStringConverter}}">
+            <Frame Grid.Column="1" Source="{Binding CurrentPage, Converter={res:PageEnumToStringConverter}}" Style="{StaticResource mFrame}">
                 
             </Frame>
         </Grid>

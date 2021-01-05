@@ -27,34 +27,22 @@ namespace CommandPrompter.Models.ViewModels
         public MainWindowViewModel(Window window)
         {
             PageSwitchHelper.windowViewModel = this;
-            //this.window = window;
-            //Users = new ObservableCollection<UserResponseDto>();
-            //var login = new LoginRequestDto()
-            //{
-            //    username = "test",
-            //    password = "test"
-            //};
-            //var info = JsonConvert.SerializeObject(login);
-            //var token = HttpRequestHelper.PostAsync<TokenResponseDto>(RouteHelper.Login, info).ContinueWith(res =>
-            //{
-            //    AccountHolder.Token = res.Result.Token;
-            //    HttpRequestHelper.AddJWTBearer();
-            //    var users = HttpRequestHelper.GetAsync<List<UserResponseDto>>(RouteHelper.GetAllUsers).ContinueWith(res =>
-            //    {
-            //        foreach (var item in res.Result)
-            //        {
-            //            window.Dispatcher.Invoke(() =>
-            //            {
-            //                Users.Add(item);
-            //            });
-            //        }
-            //    });
-            //});
-            
+            this.window = window;
+            var login = new LoginRequestDto()
+            {
+                username = "test",
+                password = "test"
+            };
+            var info = JsonConvert.SerializeObject(login);
+            var token = HttpRequestHelper.PostAsync<TokenResponseDto>(RouteHelper.Login, info).ContinueWith(res =>
+            {
+                AccountHolder.Token = res.Result.Token;
+                HttpRequestHelper.AddJWTBearer();
+            });
+
 
         }
 
-        public ObservableCollection<UserResponseDto> Users { get; set; }
  
     }
 }

@@ -10,5 +10,7 @@ namespace CommandPrompter.Helpers
 
         public static string Login => GlobalConfiguration.ServiceAddress + @"Login/Login";
 
+        public static string GetAllPlateforms => GlobalConfiguration.ServiceAddress + @"Plateform/GetAllPlateforms";
+
     }
 }

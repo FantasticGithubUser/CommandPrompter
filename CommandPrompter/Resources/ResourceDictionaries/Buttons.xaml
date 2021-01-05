@@ -79,7 +79,7 @@
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Effect">
             <Setter.Value>
-                <DropShadowEffect BlurRadius="50" ShadowDepth="0" Color="White"/>
+                <DropShadowEffect BlurRadius="100" ShadowDepth="0" Color="White"/>
             </Setter.Value>
         </Setter>
         <Setter Property="Template">
@@ -91,7 +91,7 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetProperty="(Effect).BlurRadius" To="20" Duration="0:0:0.1" FillBehavior="HoldEnd"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="(Effect).BlurRadius" To="10" Duration="0:0:0.1" FillBehavior="HoldEnd"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.EnterActions>

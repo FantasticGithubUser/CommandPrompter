@@ -9,6 +9,14 @@
       Title="PlateformPage">
 
     <Grid>
-        <Button Background="Pink"></Button>
+        <ListView Style="{StaticResource GenericListView}" ItemsSource="{Binding Plateforms}">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Column1" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>

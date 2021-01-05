@@ -9,6 +9,19 @@
       Title="ErrorPage">
 
     <Grid>
-        <Button Background="Orange" Content="&#xf0ce;" FontFamily="{StaticResource FontAwesome}"/>
+        <Border Background="Black" BorderBrush="#d46c55">
+            <Grid>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock>
+                        <Run Foreground="{StaticResource DarkRedSolidBrush}">O</Run>
+                        <Run Foreground="{StaticResource DarkYellowSolidBrush}">o</Run>
+                        <Run Foreground="{StaticResource DarkGreenSolidBrush}">p</Run>
+                        <Run Foreground="{StaticResource NormalGraySolidBrush}">s</Run>
+                        <Run> Inner Error Occured!</Run>
+                    </TextBlock>
+                    <Button>Back To Site</Button>
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

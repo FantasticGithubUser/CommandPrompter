@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommandPrompter.Models.ViewModels.PlateformPageViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,7 @@ namespace CommandPrompter.Resources.Pages
         public PlateformPage()
         {
             InitializeComponent();
+            this.DataContext = new PlateformPageViewModel(this);
         }
     }
 }
