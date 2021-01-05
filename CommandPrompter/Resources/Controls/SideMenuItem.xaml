@@ -6,12 +6,17 @@
              xmlns:local="clr-namespace:CommandPrompter.Resources.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="70" d:DesignWidth="250">
+    <Grid Margin="20,6,6,20">
     <Button Style="{StaticResource SideMenuButton}" Command="{Binding openPageCommand}">
             <StackPanel Orientation="Horizontal">
-                <TextBlock>
-                    <Run Text="{Binding Icon}"></Run>
+            <TextBlock Margin="0,0,10,0">
+                <Run FontFamily="{StaticResource FontAwesome}" Text="{Binding Icon}"></Run>
+            </TextBlock>
+            <TextBlock>
+                    
                     <Run Text="{Binding ItemName}"></Run>
-                </TextBlock>
-            </StackPanel>
+            </TextBlock>
+        </StackPanel>
         </Button>
+    </Grid>
 </UserControl>

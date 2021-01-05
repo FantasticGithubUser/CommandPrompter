@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Fonts\fontawesome-webfont.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\fontawesome-webfont.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Tests\" />
   </ItemGroup>
 

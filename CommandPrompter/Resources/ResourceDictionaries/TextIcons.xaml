@@ -3,6 +3,6 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
     <sys:String x:Key="Plateform">&#xf108;</sys:String>
     <sys:String x:Key="Command">&#xf0ae;</sys:String>
-    <sys:String x:Key="ChainedCommand">&#xf0c1;</sys:String>
-
+    <sys:String x:Key="CommandChain">&#xf0c1;</sys:String>
+    <sys:String x:Key="Cog">&#xf013;</sys:String>
 </ResourceDictionary>

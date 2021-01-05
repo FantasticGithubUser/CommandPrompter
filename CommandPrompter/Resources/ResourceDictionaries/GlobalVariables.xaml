@@ -4,6 +4,4 @@
     <sys:Double x:Key="WindowPaddingSize">10</sys:Double>
     <sys:Double x:Key="FlatBorderThickness">3</sys:Double>
     <sys:Double x:Key="WindowCaptionHeight">30</sys:Double>
-    <FontFamily x:Key="FontAwesome">pack://application:,,,/Resources/Fonts/#FontAwesome</FontFamily>
-    
 </ResourceDictionary>

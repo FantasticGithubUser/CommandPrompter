@@ -48,8 +48,8 @@
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <control:SideMenu Grid.Column="0">
                 

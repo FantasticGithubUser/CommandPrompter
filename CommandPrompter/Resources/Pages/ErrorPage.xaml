@@ -9,6 +9,6 @@
       Title="ErrorPage">
 
     <Grid>
-        <Button Background="Red" Content="Erro Occured"/>
+        <Button Background="Orange" Content="&#xf0ce;" FontFamily="{StaticResource FontAwesome}"/>
     </Grid>
 </Page>

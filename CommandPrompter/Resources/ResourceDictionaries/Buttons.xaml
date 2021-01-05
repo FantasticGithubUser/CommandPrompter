@@ -79,19 +79,19 @@
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Effect">
             <Setter.Value>
-                <DropShadowEffect BlurRadius="30" ShadowDepth="0" Color="White"/>
+                <DropShadowEffect BlurRadius="50" ShadowDepth="0" Color="White"/>
             </Setter.Value>
         </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <ContentPresenter Margin="20" Content="{TemplateBinding Content}" VerticalAlignment="Center"></ContentPresenter>
+                    <ContentPresenter Content="{TemplateBinding Content}" VerticalAlignment="Center"></ContentPresenter>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetProperty="(Effect).BlurRadius" To="10" Duration="0:0:0.1" FillBehavior="HoldEnd"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="(Effect).BlurRadius" To="20" Duration="0:0:0.1" FillBehavior="HoldEnd"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.EnterActions>

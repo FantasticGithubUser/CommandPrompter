@@ -22,7 +22,7 @@ namespace CommandPrompter.Resources.Controls
         public SideMenu()
         {
             InitializeComponent();
-            this.DataContext = new SideMenuViewModel();
+            this.DataContext = new SideMenuViewModel(this);
         }
     }
 }
