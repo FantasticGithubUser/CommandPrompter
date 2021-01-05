@@ -13,7 +13,11 @@
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Column1" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                        <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                        <GridViewColumn Header="Version" DisplayMemberBinding="{Binding Version}"></GridViewColumn>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                        <GridViewColumn Header="PlateformVersion" DisplayMemberBinding="{Binding PlateformVersion}"></GridViewColumn>
+                        <GridViewColumn Header="CreatorId" DisplayMemberBinding="{Binding CreatorId}"></GridViewColumn>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>

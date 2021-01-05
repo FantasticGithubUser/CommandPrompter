@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="250">
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Visible" Background="Transparent">
-            <ItemsControl ItemsSource="{Binding SideMenuItems,Mode=TwoWay}" FontFamily="{StaticResource FontAwesome}">
+            <ItemsControl ItemsSource="{Binding SideMenuItems}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <local:SideMenuItem/>

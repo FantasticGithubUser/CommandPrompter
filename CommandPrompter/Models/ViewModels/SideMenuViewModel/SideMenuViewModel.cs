@@ -31,13 +31,6 @@ namespace CommandPrompter.Models.ViewModels
             commandChain.ItemName = "C-Chain";
             SideMenuItems.Add(commandChain);
 
-            for(int i = 0; i < 30; i++)
-            {
-                var cc = new SideMenuItemViewModel(PageEnum.CommandChain);
-                cc.Icon = sideMenu.FindResource("CommandChain") as string;
-                cc.ItemName = "C-Chain";
-                SideMenuItems.Add(cc);
-            }
         }
     }
 }
