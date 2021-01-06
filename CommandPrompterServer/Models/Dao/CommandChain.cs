@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CommandPrompterServer.Models.Dao
 {
+    [Index("Name")]
     public class CommandChain : SimpleDao<CommandChain>
     {
         /// <summary>

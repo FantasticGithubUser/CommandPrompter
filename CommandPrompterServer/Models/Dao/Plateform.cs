@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CommandPrompterServer.Models.Dao
 {
+    [Index("Name")]
     public class Plateform : SimpleDao<Plateform>
     {
         /// <summary>

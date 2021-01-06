@@ -19,11 +19,11 @@ namespace CommandPrompter.Models.ViewModels.PlateformPageViewModel
 
         private void GetAllPlateforms()
         {
-            HttpRequestHelper.GetAsync<List<PlateformResponseDto>>(RouteHelper.GetAllPlateforms).ContinueWith(res =>
+            _ = HttpRequestHelper.GetAsync<List<PlateformResponseDto>>(RouteHelper.GetAllPlateforms, res =>
             {
                 UpdateUI(() =>
                 {
-                    foreach (var item in res.Result)
+                    foreach (var item in res)
                     {
                         Plateforms.Add(item);
                     }

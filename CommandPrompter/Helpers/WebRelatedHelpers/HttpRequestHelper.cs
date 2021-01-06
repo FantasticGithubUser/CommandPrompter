@@ -16,31 +16,35 @@ namespace CommandPrompter.Helpers
                 client.DefaultRequestHeaders.Add("Authorization", AccountHolder.Token);
         }
 
-        public static async Task<T> GetAsync<T>(string address) where T : class, new()
+        public static async Task GetAsync<T>(string address, Action<T> callback) where T : class, new()
         {
             var response = await client.GetAsync(address);
-            response.EnsureSuccessStatusCode();
-            return ModelBindingHelper.BindModel<T>(response.Content.ReadAsStringAsync().Result);
+            //response.EnsureSuccessStatusCode();
+            var res = ModelBindingHelper.BindModel<T>(response.Content.ReadAsStringAsync().Result);
+            callback.Invoke(res);
         }
 
-        public static async Task<T> PostAsync<T>(string address, string jsonContent) where T : class, new()
+        public static async Task PostAsync<T>(string address, string jsonContent, Action<T> callback) where T : class, new()
         {
             var httpContent = new StringContent(jsonContent,Encoding.UTF8,"application/json");
             var response = await client.PostAsync(address, httpContent);
-            return ModelBindingHelper.BindModel<T>(response.Content.ReadAsStringAsync().Result);
+            var res = ModelBindingHelper.BindModel<T>(response.Content.ReadAsStringAsync().Result);
+            callback.Invoke(res);
         }
 
-        public static async Task<T> PutAsync<T>(string address, string jsonContent) where T : class, new()
+        public static async Task PutAsync<T>(string address, string jsonContent, Action<T> callback) where T : class, new()
         {
             var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
             var response = await client.PutAsync(address, httpContent);
-            return ModelBindingHelper.BindModel<T>(response.Content.ReadAsStringAsync().Result);
+            var res = ModelBindingHelper.BindModel<T>(response.Content.ReadAsStringAsync().Result);
+            callback.Invoke(res);
         }
 
-        public static async Task<T> DeleteAsync<T>(string address) where T : class, new()
+        public static async Task DeleteAsync<T>(string address, Action<T> callback) where T : class, new()
         {
             var response = await client.DeleteAsync(address);
-            return ModelBindingHelper.BindModel<T>(response.Content.ReadAsStringAsync().Result);
+            var res = ModelBindingHelper.BindModel<T>(response.Content.ReadAsStringAsync().Result);
+            callback.Invoke(res);
         }
         
     }

@@ -1,19 +1,14 @@
-﻿using CommandPrompterServer.Helpers;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Threading.Tasks;
 
 namespace CommandPrompterServer.Models.Dao
 {
     /// <summary>
     /// The base dao.
     /// </summary>
+    [Index("Id")]
     public abstract class BaseDao<T> : MetaDao where T : class, new()
     {
         /// <summary>

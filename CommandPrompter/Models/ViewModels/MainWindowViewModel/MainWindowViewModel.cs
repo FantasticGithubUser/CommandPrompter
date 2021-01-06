@@ -11,7 +11,7 @@ namespace CommandPrompter.Models.ViewModels
     {
         private Window window;
 
-        private PageEnum currentPage = PageEnum.Plateform;
+        private PageEnum currentPage = PageEnum.Command;
         public PageEnum CurrentPage
         {
             get
@@ -34,9 +34,9 @@ namespace CommandPrompter.Models.ViewModels
                 password = "test"
             };
             var info = JsonConvert.SerializeObject(login);
-            var token = HttpRequestHelper.PostAsync<TokenResponseDto>(RouteHelper.Login, info).ContinueWith(res =>
+            var token = HttpRequestHelper.PostAsync<TokenResponseDto>(RouteHelper.Login, info, res =>
             {
-                AccountHolder.Token = res.Result.Token;
+                AccountHolder.Token = res.Token;
                 HttpRequestHelper.AddJWTBearer();
             });
 

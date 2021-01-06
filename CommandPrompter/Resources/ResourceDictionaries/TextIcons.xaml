@@ -5,4 +5,5 @@
     <sys:String x:Key="Command">&#xf0ae;</sys:String>
     <sys:String x:Key="CommandChain">&#xf0c1;</sys:String>
     <sys:String x:Key="Cog">&#xf013;</sys:String>
+    <sys:String x:Key="Search">&#xf002;</sys:String>
 </ResourceDictionary>

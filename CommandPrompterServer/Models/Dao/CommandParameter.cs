@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CommandPrompterServer.Models.Dao
 {
     /// <summary>
     /// 
     /// </summary>
+    [Index("Name")]
     public class CommandParameter : SimpleDao<CommandParameter>
     {
         /// <summary>

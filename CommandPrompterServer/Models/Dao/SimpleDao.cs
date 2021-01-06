@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CommandPrompterServer.Models.Dao
 {
     /// <summary>
     /// The simple dao.
     /// </summary>
+    [Index("SeriesId")]
+    [Index("CreatorId")]
     public abstract class SimpleDao<T> : BaseDao<T> where T : class, new()
     {
         /// <summary>

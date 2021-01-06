@@ -122,20 +122,25 @@ namespace CommandPrompterServer.Controllers
             });
             AccountHolder.user.Value = user;
             Models.Dao.Plateform cur = null, last = null;
-            for (int i = 0; i < 10; i++)
+            
+            var action = new Action(() =>
             {
-                cur = _plateformService.AddNewEntity(new Models.Dao.Plateform
+                for (int i = 0; i < 100; i++)
                 {
-                    Name = "testForm" + i,
-                    PlateformVersion = "newVersion" + i
-                });
-                if(last != null)
-                {
-                    cur.PlateformId = last.Id;
-                    _plateformService.UpdateEntity(cur);
+                    cur = _plateformService.AddNewEntity(new Models.Dao.Plateform
+                    {
+                        Name = "testForm" + i,
+                        PlateformVersion = "newVersion" + i
+                    });
+                    if (last != null)
+                    {
+                        cur.PlateformId = last.Id;
+                        _plateformService.UpdateEntity(cur);
+                    }
+                    last = cur;
                 }
-                last = cur;
-            }
+            });
+            Parallel.Invoke(action);
 
         }
         /// <summary>

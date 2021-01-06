@@ -1125,3 +1125,158 @@ Error Number:547,State:0,Class:16
    at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
    at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
    at CommandPrompterServer.Helpers.ServiceInterceptor.<>c__DisplayClass13_1.<Intercept>b__0() in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ServiceInterceptor.cs:line 44
+2021/1/6 10:35:16: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 10:35:16: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 10:35:16: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 10:35:16: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 10:35:16: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:07:44: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:07:44: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:07:44: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:07:44: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:07:44: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:17:37: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:17:37: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:17:37: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:17:37: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:17:37: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:17:37: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:17:37: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:21:05: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:21:05: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:21:05: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:21:05: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:21:05: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:21:05: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:21:05: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:21:42: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:21:42: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:21:42: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:21:42: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:21:42: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:21:42: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/6 11:21:42: System.NullReferenceException: Object reference not set to an instance of an object.
+   at CommandPrompterServer.Managers.SimpleManagerImpl`1.AddNewEntity(T entity) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\SimpleManagerImpl.cs:line 52
+   at Castle.Proxies.Invocations.IBaseManager`1_AddNewEntity_6.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18

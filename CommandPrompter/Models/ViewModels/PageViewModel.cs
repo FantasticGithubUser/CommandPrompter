@@ -15,7 +15,7 @@ namespace CommandPrompter.Models.ViewModels
         }
         protected void UpdateUI(Action action)
         {
-            page.Dispatcher.BeginInvoke(action);
+            page.Dispatcher.Invoke(action);
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,6 +8,7 @@ namespace CommandPrompterServer.Models.Dao
     /// <summary>
     /// The command entity
     /// </summary>
+    [Index("Name")]
     public class Command : SimpleDao<Command>
     {
         /// <summary>

@@ -16,6 +16,7 @@ namespace CommandPrompterServer.Models
         {
             CreateMap<User, UserResponseDto>();
             CreateMap<UserRequestDto, User>();
+            CreateMap<Plateform, PlateformResponseDto>();
         }
     }
 }

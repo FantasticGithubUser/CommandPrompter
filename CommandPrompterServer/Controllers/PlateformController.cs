@@ -1,4 +1,5 @@
 ﻿using CommandPrompterServer.Models.Dao;
+using CommandPrompterServer.Models.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -34,9 +35,16 @@ namespace CommandPrompterServer.Controllers
         [HttpGet]
         [Route("GetAllPlateforms")]
         [Authorize]
-        public List<Plateform> GetAllPlateforms()
+        public List<PlateformResponseDto> GetAllPlateforms()
         {
-            return _plateformService.GetAllEntities();
+
+            var list = _plateformService.GetAllEntities();
+            var ret = new List<PlateformResponseDto>();
+            foreach(var item in list)
+            {
+                ret.Add(_mapper.Map<PlateformResponseDto>(item));
+            }
+            return ret;
         }
         
         [HttpGet]

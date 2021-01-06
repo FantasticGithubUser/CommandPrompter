@@ -33,11 +33,14 @@
                                             <ResourceDictionary />
                                         </Style.Resources>
                                         <Setter Property="Canvas.Right" Value="-9"/>
-                                        <Setter Property="Visibility" Value="Hidden"/>
+                                        <Setter Property="Canvas.Bottom" Value="0"/>
+                                        <Setter Property="Visibility" Value="Visible"/>
                                         <Setter Property="FrameworkElement.Width" Value="18"/>
                                         <Setter Property="FrameworkElement.Height" Value="{Binding ActualHeight, RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
                                         <Setter Property="Control.Padding" Value="0,0,0,0"/>
                                         <Setter Property="Panel.Background" Value="White"/>
+                                        <Setter Property="Opacity" Value="0.5"/>
+                                        <Setter Property="Padding" Value="2"/>
                                         <Setter Property="Control.Template">
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="Thumb">
@@ -64,7 +67,6 @@
                                 </Setter.Value>
                             </Setter>
                             <Setter Property="Panel.Cursor" TargetName="HeaderBorder" Value="Hand"/>
-                            <Setter Property="Visibility" TargetName="PART_HeaderGripper" Value="Visible"/>
                         </Trigger>
                         <Trigger Property="ButtonBase.IsPressed" Value="True">
                             <Setter Property="Panel.Background" TargetName="HeaderBorder">
@@ -100,5 +102,12 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+    
+    
+    
+    
+    
+    
     
 </ResourceDictionary>
