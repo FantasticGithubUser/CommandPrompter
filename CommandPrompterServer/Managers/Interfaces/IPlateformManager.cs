@@ -2,7 +2,7 @@
 
 namespace CommandPrompterServer.Managers
 {
-    public interface IPlateformManager : IBaseManager<Plateform>
+    public interface IPlateformManager : IBaseManager<Plateform>, ISearchable
     {
     }
 }

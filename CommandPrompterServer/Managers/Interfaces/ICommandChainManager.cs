@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CommandPrompterServer.Managers
 {
-    public interface ICommandChainManager : ISimpleManager<CommandChain>
+    public interface ICommandChainManager : ISimpleManager<CommandChain>, ISearchable
     {
         List<ChainedCommand> GetAllNewestChainedCommandInOrder(string id);
     }

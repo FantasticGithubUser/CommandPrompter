@@ -8,6 +8,7 @@ namespace CommandPrompterServer.Controllers
     [Route("[controller]")]
     public class BaseController : Controller
     {
+        protected ICommonService _commonService { get; set; }
         protected ICommandService _commandService { get; set; }
         protected ICommandParameterService _commandParameterService { get; set; }
         protected ICommandChainService _commandChainService { get; set; }

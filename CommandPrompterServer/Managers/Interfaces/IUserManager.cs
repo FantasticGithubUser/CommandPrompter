@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CommandPrompterServer.Managers
 {
-    public interface IUserManager : IBaseManager<User>
+    public interface IUserManager : IBaseManager<User>, ISearchable
     {
         List<User> GetAllActivatedUsers();
 

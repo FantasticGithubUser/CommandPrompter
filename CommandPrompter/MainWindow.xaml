@@ -45,6 +45,9 @@
             <Button Style="{StaticResource WindowButton}" Background="{StaticResource NormalRedSolidBrush}" Foreground="{StaticResource DarkRedSolidBrush}" Click="Window_Close"/>
             <Button Style="{StaticResource WindowButton}" Background="{StaticResource NormalYellowSolidBrush}" Foreground="{StaticResource DarkYellowSolidBrush}" Click="Window_Minimized"/>
             <Button Style="{StaticResource WindowButton}" Background="{StaticResource NormalGreenSolidBrush}" Foreground="{StaticResource DarkGreenSolidBrush}" Click="Window_Maximized"/>
+            <control:SearchBar HorizontalAlignment="Right" WindowChrome.IsHitTestVisibleInChrome="True">
+                
+            </control:SearchBar>
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>

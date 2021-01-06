@@ -1,12 +1,9 @@
 ﻿using CommandPrompterServer.Models.Dao;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CommandPrompterServer.Managers
 {
-    public interface ICommandManager : ISimpleManager<Command>
+    public interface ICommandManager : ISimpleManager<Command>, ISearchable
     {
         List<CommandParameter> GetAllNewestParametersInOrder(string id);
 

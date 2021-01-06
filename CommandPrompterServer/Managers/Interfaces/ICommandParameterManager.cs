@@ -2,7 +2,7 @@
 
 namespace CommandPrompterServer.Managers
 {
-    public interface ICommandParameterManager : ISimpleManager<CommandParameter>
+    public interface ICommandParameterManager : ISimpleManager<CommandParameter>, ISearchable
     {
     }
 }

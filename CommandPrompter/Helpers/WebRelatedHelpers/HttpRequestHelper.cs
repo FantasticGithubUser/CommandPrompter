@@ -19,7 +19,7 @@ namespace CommandPrompter.Helpers
         public static async Task GetAsync<T>(string address, Action<T> callback) where T : class, new()
         {
             var response = await client.GetAsync(address);
-            //response.EnsureSuccessStatusCode();
+            response.EnsureSuccessStatusCode();
             var res = ModelBindingHelper.BindModel<T>(response.Content.ReadAsStringAsync().Result);
             callback.Invoke(res);
         }
@@ -28,6 +28,7 @@ namespace CommandPrompter.Helpers
         {
             var httpContent = new StringContent(jsonContent,Encoding.UTF8,"application/json");
             var response = await client.PostAsync(address, httpContent);
+            response.EnsureSuccessStatusCode();
             var res = ModelBindingHelper.BindModel<T>(response.Content.ReadAsStringAsync().Result);
             callback.Invoke(res);
         }
@@ -36,6 +37,7 @@ namespace CommandPrompter.Helpers
         {
             var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
             var response = await client.PutAsync(address, httpContent);
+            response.EnsureSuccessStatusCode();
             var res = ModelBindingHelper.BindModel<T>(response.Content.ReadAsStringAsync().Result);
             callback.Invoke(res);
         }
@@ -43,6 +45,7 @@ namespace CommandPrompter.Helpers
         public static async Task DeleteAsync<T>(string address, Action<T> callback) where T : class, new()
         {
             var response = await client.DeleteAsync(address);
+            response.EnsureSuccessStatusCode();
             var res = ModelBindingHelper.BindModel<T>(response.Content.ReadAsStringAsync().Result);
             callback.Invoke(res);
         }

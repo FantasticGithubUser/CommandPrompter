@@ -2,6 +2,7 @@
 using CommandPrompterServer.Models.Dao;
 using System.Collections.Generic;
 using System;
+using CommandPrompterServer.Models.Dto;
 
 namespace CommandPrompterServer.Managers
 {
@@ -74,5 +75,24 @@ namespace CommandPrompterServer.Managers
 
         }
 
+        public List<RelatedNameResponseDto> Search(string name)
+        {
+            var ret = from user in context.Set<User>() where user.Username.Contains(name) select user;
+            if (ret != null && ret.Count() != 0)
+            {
+                var list = new List<RelatedNameResponseDto>();
+                foreach(var item in ret)
+                {
+                    list.Add(new RelatedNameResponseDto()
+                    {
+                        Id = item.Id,
+                        Name = item.Username,
+                        Type = "User"
+                    });
+                }
+                return list;
+            }
+            return null;
+        }
     }
 }

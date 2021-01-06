@@ -37,7 +37,7 @@ namespace CommandPrompterServer.Controllers
         [HttpGet]
         [Route("ActivateUser/{id}")]
         [Authorize]
-        public void ActivateUser([FromQuery] string id)
+        public void ActivateUser([FromRoute] string id)
         {
             _userService.ActivateUser(id);
         }
@@ -45,7 +45,7 @@ namespace CommandPrompterServer.Controllers
         [HttpGet]
         [Route("DeactivateUser/{id}")]
         [Authorize]
-        public void DeactivateUser([FromQuery] string id)
+        public void DeactivateUser([FromRoute] string id)
         {
             _userService.DeactivateUser(id);
         }
