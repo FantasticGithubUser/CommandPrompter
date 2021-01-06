@@ -24,7 +24,7 @@ namespace CommandPrompterServer.Controllers
             var temp = _commonService.SearchName(name);
             if (temp != null)
             {
-                foreach (var item in _commonService.SearchName(name))
+                foreach (var item in temp)
                 {
                     if (counter == count)
                         return ret;

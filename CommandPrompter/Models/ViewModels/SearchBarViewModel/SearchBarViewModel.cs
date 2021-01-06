@@ -16,21 +16,27 @@ namespace CommandPrompter.Models.ViewModels.SearchBarViewModel
         {
             this.searchBar = searchBar;
         }
-        public void GetRelatedNames(string name, int count = 10)
+        public void GetRelatedNames(string name = "", int count = 10)
         {
             searchBar.IsExpanded = true;
             searchBar.IsLoading = true;
-            _ = HttpRequestHelper.GetAsync<List<RelatedNameResponseDto>>(RouteHelper.ReplaceParam(RouteHelper.GetRelatedNames, name, count.ToString()), res =>
-               {
-                   searchBar.Dispatcher.Invoke(() =>
+            if (!string.IsNullOrEmpty(name))
+            {
+                _ = HttpRequestHelper.GetAsync<List<RelatedNameResponseDto>>(RouteHelper.ReplaceParam(RouteHelper.GetRelatedNames, name, count.ToString()), res =>
                    {
-                       foreach (var item in res)
+                       searchBar.Dispatcher.Invoke(() =>
                        {
-                           relatedNames.Add(item);
-                       }
-                       searchBar.IsLoading = false;
+                           if (res != null)
+                           {
+                               foreach (var item in res)
+                               {
+                                   relatedNames.Add(item);
+                               }
+                           }
+                           searchBar.IsLoading = false;
+                       });
                    });
-               });
+            }
         }
         public void ClearRelatedNames()
         {

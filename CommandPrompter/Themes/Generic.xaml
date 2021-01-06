@@ -3,6 +3,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:CommandPrompter.Resources.Controls">
 
+    <Style x:Key="SearchBarTextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="CaretBrush" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBoxBase">
+                    <Border BorderThickness="{TemplateBinding Border.BorderThickness}" BorderBrush="{TemplateBinding Border.BorderBrush}" Background="{TemplateBinding Panel.Background}" Name="border" SnapsToDevicePixels="True" CornerRadius="5">
+                        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Name="PART_ContentHost" Focusable="False" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
     <Style TargetType="{x:Type local:SearchBar}">
         <Setter Property="Background" Value="Transparent"/>
@@ -10,16 +22,49 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:SearchBar}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="0,0,10,0" FontFamily="{TemplateBinding FontFamily}">
+                    <Viewbox Margin="{TemplateBinding Margin}" Name="Viewbox" RenderTransformOrigin="0.5,0.5">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center" Margin="0,0,10,0" FontFamily="{TemplateBinding FontFamily}">
                             <Run Text="&#xf002;"></Run>
-                        </TextBlock>
-                        <Border BorderBrush="White" BorderThickness="0.8" CornerRadius="12">
-                            <TextBox Text="{Binding Path=MyText,RelativeSource={RelativeSource AncestorType=local:SearchBar}, UpdateSourceTrigger=PropertyChanged}" Name="BarTextBox" MinWidth="{TemplateBinding MinWidth}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
-                                
+                            </TextBlock>
+                            <TextBox Style="{StaticResource SearchBarTextBox}" Background="Transparent" Foreground="White" Text="{Binding Path=MyText,RelativeSource={RelativeSource AncestorType=local:SearchBar}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Name="BarTextBox" MinWidth="{TemplateBinding MinWidth}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+
                             </TextBox>
-                        </Border>
-                    </StackPanel>
+                        </StackPanel>
+                        <Viewbox.RenderTransform>
+                            <ScaleTransform CenterX="0.5" CenterY="0.5"/>
+                        </Viewbox.RenderTransform>
+                    </Viewbox>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Viewbox" Storyboard.TargetProperty="(RenderTransform).ScaleY" To="1.3" Duration="0:0:0.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <PowerEase Power="2" EasingMode="EaseIn"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <!--<ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Duration="0:0:0.3" BeginTime="0:0:0">
+                                            <SplineThicknessKeyFrame KeyTime="0:0:0.3" Value="0,2,5,50"/>
+                                        </ThicknessAnimationUsingKeyFrames>-->
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" BeginTime="0:0:0" Duration="0:0:1"/>
+                                        <DoubleAnimation Storyboard.TargetName="Viewbox" Storyboard.TargetProperty="(RenderTransform).ScaleY" Duration="0:0:0.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <PowerEase Power="2" EasingMode="EaseIn"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

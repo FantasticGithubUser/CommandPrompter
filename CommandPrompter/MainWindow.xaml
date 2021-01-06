@@ -40,15 +40,20 @@
             <RowDefinition Height="{Binding Source={StaticResource WindowCaptionHeight}, Converter={res:DoubleToGridLengthConverter}}"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Stretch">
+        <DockPanel Grid.Row="0">
+        <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" HorizontalAlignment="Stretch">
             <StackPanel Width="10"/>
             <Button Style="{StaticResource WindowButton}" Background="{StaticResource NormalRedSolidBrush}" Foreground="{StaticResource DarkRedSolidBrush}" Click="Window_Close"/>
             <Button Style="{StaticResource WindowButton}" Background="{StaticResource NormalYellowSolidBrush}" Foreground="{StaticResource DarkYellowSolidBrush}" Click="Window_Minimized"/>
             <Button Style="{StaticResource WindowButton}" Background="{StaticResource NormalGreenSolidBrush}" Foreground="{StaticResource DarkGreenSolidBrush}" Click="Window_Maximized"/>
-            <control:SearchBar HorizontalAlignment="Right" WindowChrome.IsHitTestVisibleInChrome="True" FontFamily="{StaticResource FontAwesome}" Width="100" Height="20">
-                
-            </control:SearchBar>
+            
         </StackPanel>
+            <StackPanel DockPanel.Dock="Right">
+                <control:SearchBar HorizontalAlignment="Right" WindowChrome.IsHitTestVisibleInChrome="True" FontFamily="{StaticResource FontAwesome}" Width="250" Margin="0,5,5,2">
+
+                </control:SearchBar>
+            </StackPanel>
+        </DockPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="120"/>
