@@ -11,15 +11,16 @@ namespace CommandPrompter.Models.ViewModels.SearchBarViewModel
     public class SearchBarViewModel : BaseViewModel
     {
         private SearchBar searchBar;
-        public ObservableCollection<RelatedNameResponseDto> relatedNames { get; set; } = new ObservableCollection<RelatedNameResponseDto>();
+        public ObservableCollection<RelatedNameResponseDto> RelatedNames { get; set; } = new ObservableCollection<RelatedNameResponseDto>();
         public SearchBarViewModel(SearchBar searchBar)
         {
             this.searchBar = searchBar;
         }
         public void GetRelatedNames(string name = "", int count = 10)
         {
-            searchBar.IsExpanded = true;
+            RelatedNames.Clear();
             searchBar.IsLoading = true;
+            searchBar.IsExpanded = true;
             if (!string.IsNullOrEmpty(name))
             {
                 _ = HttpRequestHelper.GetAsync<List<RelatedNameResponseDto>>(RouteHelper.ReplaceParam(RouteHelper.GetRelatedNames, name, count.ToString()), res =>
@@ -30,7 +31,7 @@ namespace CommandPrompter.Models.ViewModels.SearchBarViewModel
                            {
                                foreach (var item in res)
                                {
-                                   relatedNames.Add(item);
+                                   RelatedNames.Add(item);
                                }
                            }
                            searchBar.IsLoading = false;
@@ -40,7 +41,7 @@ namespace CommandPrompter.Models.ViewModels.SearchBarViewModel
         }
         public void ClearRelatedNames()
         {
-            relatedNames.Clear();
+            RelatedNames.Clear();
         }
     }
 }
