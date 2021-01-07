@@ -103,6 +103,20 @@
         </Setter>
     </Style>
 
+    <Style x:Key="SearchBarToolTip" TargetType="{x:Type ToolTip}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToolTip">
+                    <Border Name="Border"
+                BorderThickness="1"
+                            BorderBrush="Transparent" Background="#3d3c3c" CornerRadius="5" Padding="3">
+                        <ContentPresenter Content="{TemplateBinding ContentControl.Content}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style TargetType="{x:Type local:SearchBar}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="White"/>
@@ -128,7 +142,12 @@
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <DockPanel Width="236" Margin="1,0,0,0">
-                                        <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Background="Transparent">
+                                            <DockPanel.ToolTip>
+                                                <ToolTip Style="{StaticResource SearchBarToolTip}" Foreground="White" Background="Transparent" Visibility="{Binding Description, Converter={res:EmptyStringToVisibilityConverter}}">
+                                                    <TextBlock TextWrapping="Wrap" MaxWidth="200" Text="{Binding Description}"/>
+                                                </ToolTip>
+                                            </DockPanel.ToolTip>
+                                            <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Background="Transparent">
                                                 <Label Style="{StaticResource SearchBarMainLabel}" MaxWidth="100">
                                                     <TextBlock Text="{Binding Name}" TextWrapping="WrapWithOverflow"/>
                                                 </Label>

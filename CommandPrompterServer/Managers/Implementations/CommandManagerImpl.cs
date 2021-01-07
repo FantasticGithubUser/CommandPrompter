@@ -40,7 +40,8 @@ namespace CommandPrompterServer.Managers
                         Id = item.Id,
                         Name = item.Name,
                         Type = "Command",
-                        Version = item.Version
+                        Version = item.Version,
+                        Description = item.Description
                     });
                 }
                 return list;

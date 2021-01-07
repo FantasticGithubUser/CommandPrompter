@@ -20,7 +20,7 @@ namespace CommandPrompter.Models.ViewModels.SearchBarViewModel
         {
             RelatedNames.Clear();
             searchBar.IsLoading = true;
-            searchBar.IsExpanded = true;
+
             if (!string.IsNullOrEmpty(name))
             {
                 _ = HttpRequestHelper.GetAsync<List<RelatedNameResponseDto>>(RouteHelper.ReplaceParam(RouteHelper.GetRelatedNames, name, count.ToString()), res =>
@@ -33,10 +33,25 @@ namespace CommandPrompter.Models.ViewModels.SearchBarViewModel
                                {
                                    RelatedNames.Add(item);
                                }
+                               searchBar.IsExpanded = true;
+                           }
+                           else
+                           {
+                               if(searchBar.IsExpanded == true)
+                               {
+                                   searchBar.IsExpanded = false;
+                               }
                            }
                            searchBar.IsLoading = false;
                        });
                    });
+            }
+            else
+            {
+                if (searchBar.IsExpanded == true)
+                {
+                    searchBar.IsExpanded = false;
+                }
             }
         }
         public void ClearRelatedNames()

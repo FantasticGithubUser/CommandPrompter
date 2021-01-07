@@ -34,7 +34,8 @@ namespace CommandPrompterServer.Managers
                         Id = item.Id,
                         Name = item.Name,
                         Type = "CommandChain",
-                        Version = item.Version
+                        Version = item.Version,
+                        Description = item.Description
                     });
                 }
                 return list;
