@@ -16,7 +16,7 @@ namespace CommandPrompter.Models.ViewModels.SearchBarViewModel
         {
             this.searchBar = searchBar;
         }
-        public void GetRelatedNames(string name = "", int count = 10)
+        public void GetRelatedNames(string name = "", int count = 100)
         {
             RelatedNames.Clear();
             searchBar.IsLoading = true;

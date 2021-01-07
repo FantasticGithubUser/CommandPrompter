@@ -31,6 +31,7 @@ namespace CommandPrompterServer.Controllers
                     ret.Add(item);
                     counter++;
                 }
+                return ret;
             }
             return null;
         }

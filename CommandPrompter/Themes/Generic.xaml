@@ -3,7 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:CommandPrompter.Resources.Controls"
     xmlns:res="clr-namespace:CommandPrompter.Resources"
-    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    xmlns:s="clr-namespace:System;assembly=mscorlib"
+    xmlns:root="clr-namespace:CommandPrompter">
 
     <Style x:Key="SearchBarTextBox" TargetType="{x:Type TextBox}">
         <Setter Property="CaretBrush" Value="White"/>
@@ -19,25 +20,63 @@
     </Style>
 
     <Style x:Key="SearchBarLabel" TargetType="{x:Type Label}">
+        <Setter Property="Foreground" Value="#6e6d6d"/>
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="Margin" Value="1,1,1,1"/>
+        <Setter Property="Padding" Value="0,0,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate>
-                    
+                <ControlTemplate TargetType="Label">
+                    <Border BorderThickness="{TemplateBinding Border.BorderThickness}" Padding="{TemplateBinding Control.Padding}" BorderBrush="White" Background="Transparent" SnapsToDevicePixels="True">
+                        <ContentPresenter RecognizesAccessKey="True" Content="{TemplateBinding ContentControl.Content}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}" HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="UIElement.IsEnabled">
+                            <Setter Property="TextElement.Foreground">
+                                <Setter.Value>
+                                    <DynamicResource ResourceKey="{x:Static SystemColors.GrayTextBrushKey}" />
+                                </Setter.Value>
+                            </Setter>
+                            <Trigger.Value>
+                                <s:Boolean>False</s:Boolean>
+                            </Trigger.Value>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
     <Style x:Key="SearchBarMainLabel" TargetType="{x:Type Label}">
+        <Setter Property="Foreground" Value="White"/>
         <Setter Property="Template">
             <Setter.Value>
-                
+                <ControlTemplate TargetType="Label">
+                    <Border BorderThickness="{TemplateBinding Border.BorderThickness}" Padding="{TemplateBinding Control.Padding}" BorderBrush="White" Background="Transparent" SnapsToDevicePixels="True">
+                        <ContentPresenter RecognizesAccessKey="True" Content="{TemplateBinding ContentControl.Content}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}" HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="UIElement.IsEnabled">
+                            <Setter Property="TextElement.Foreground">
+                                <Setter.Value>
+                                    <DynamicResource ResourceKey="{x:Static SystemColors.GrayTextBrushKey}" />
+                                </Setter.Value>
+                            </Setter>
+                            <Trigger.Value>
+                                <s:Boolean>False</s:Boolean>
+                            </Trigger.Value>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
     <Style x:Key="SearchBarListView" TargetType="{x:Type ListView}">
         <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBox">
@@ -84,19 +123,37 @@
                             <ScaleTransform CenterX="0.5" CenterY="0.5"/>
                         </Viewbox.RenderTransform>
                     </Viewbox>
-                        <Viewbox Canvas.Top="20" Canvas.Left="20" Visibility="{Binding Path=IsExpanded, RelativeSource={RelativeSource AncestorType=local:SearchBar}, Converter={res:BoolToVisibilityConverter}}">
-                            <ListView ItemsSource="{Binding RelatedNames}" Style="{StaticResource SearchBarListView}" SelectedItem="{Binding Path=SelectedItem, RelativeSource={RelativeSource AncestorType=local:SearchBar}, Mode=TwoWay}" Background="#1f1e1e" Foreground="White">
+                        <StackPanel Canvas.Top="20" Canvas.Left="20" Visibility="{Binding Path=IsExpanded, RelativeSource={RelativeSource AncestorType=local:SearchBar}, Converter={res:BoolToVisibilityConverter}}">
+                            <ListView MaxHeight="{Binding Path=ActualHeight, RelativeSource={RelativeSource AncestorType=root:MainWindow}, Converter={res:HeightToHeightMinusCaption}}" ItemsSource="{Binding RelatedNames}" Style="{StaticResource SearchBarListView}" SelectedItem="{Binding Path=SelectedItem, RelativeSource={RelativeSource AncestorType=local:SearchBar}, Mode=TwoWay}" Background="#1f1e1e" Foreground="White">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
-                                        <StackPanel Orientation="Horizontal" Background="Transparent">
-                                            <Button Content="{Binding Name}" Style="{StaticResource SearchBarButton}"/>
-                                            <Label Content="{Binding Version}" Style="{StaticResource SearchBarLabel}"/>
-                                            <Label Content="{Binding Type}" Style="{StaticResource SearchBarLabel}"/>
-                                        </StackPanel>
+                                        <DockPanel Width="236" Margin="1,0,0,0">
+                                        <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Background="Transparent">
+                                                <Label Style="{StaticResource SearchBarMainLabel}" MaxWidth="100">
+                                                    <TextBlock Text="{Binding Name}" TextWrapping="WrapWithOverflow"/>
+                                                </Label>
+                                            </StackPanel>
+                                            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                                                <Label Style="{StaticResource SearchBarLabel}">
+                                                    <TextBlock>
+                                                        <Run Text="&lt;Version:"></Run>
+                                                        <Run Text="{Binding Version}"></Run>
+                                                        <Run Text="&gt;"></Run>
+                                                    </TextBlock>
+                                                </Label>
+                                                <Label Style="{StaticResource SearchBarLabel}">
+                                                    <TextBlock>
+                                                        <Run Text="&lt;Type:"></Run>
+                                                        <Run Text="{Binding Type}"></Run>
+                                                        <Run Text="&gt;"></Run>
+                                                    </TextBlock>
+                                                </Label>
+                                            </StackPanel>
+                                        </DockPanel>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
-                        </Viewbox>
+                        </StackPanel>
                     </Canvas>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
