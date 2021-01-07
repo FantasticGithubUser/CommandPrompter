@@ -1,5 +1,4 @@
-﻿using CommandPrompter.Models.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -15,14 +14,13 @@ using System.Windows.Shapes;
 namespace CommandPrompter.Resources.Pages
 {
     /// <summary>
-    /// PlateformPage.xaml 的交互逻辑
+    /// WelcomePage.xaml 的交互逻辑
     /// </summary>
-    public partial class PlateformPage : Page
+    public partial class WelcomePage : Page
     {
-        public PlateformPage()
+        public WelcomePage()
         {
             InitializeComponent();
-            this.DataContext = new PlateformPageViewModel(this);
         }
     }
 }

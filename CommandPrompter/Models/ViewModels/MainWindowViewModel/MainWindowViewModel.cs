@@ -11,7 +11,7 @@ namespace CommandPrompter.Models.ViewModels
     {
         private Window window;
 
-        private PageEnum currentPage = PageEnum.Command;
+        private PageEnum currentPage = PageEnum.Welcome;
         public PageEnum CurrentPage
         {
             get

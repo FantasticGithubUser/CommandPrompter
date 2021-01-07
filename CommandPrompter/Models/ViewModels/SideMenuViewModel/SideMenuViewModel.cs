@@ -16,6 +16,11 @@ namespace CommandPrompter.Models.ViewModels
         {
             this.sideMenu = sideMenu;
 
+            var welcome = new SideMenuItemViewModel(PageEnum.Welcome);
+            welcome.Icon = sideMenu.FindResource("Welcome") as string;
+            welcome.ItemName = "Welcome";
+            SideMenuItems.Add(welcome);
+
             var plateform = new SideMenuItemViewModel(PageEnum.Plateform);
             plateform.Icon = sideMenu.FindResource("Plateform") as string;
             plateform.ItemName = "Plateform";

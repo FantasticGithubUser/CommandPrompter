@@ -1,5 +1,5 @@
 ﻿using CommandPrompter.Models.Dtos.Responses;
-using CommandPrompter.Models.ViewModels.SearchBarViewModel;
+using CommandPrompter.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;

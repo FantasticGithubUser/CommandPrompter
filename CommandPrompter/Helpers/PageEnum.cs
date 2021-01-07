@@ -3,9 +3,10 @@ namespace CommandPrompter.Helpers
 {
     public enum PageEnum
     {
-        Error = 0,
-        Plateform = 1,
-        Command = 2,
-        CommandChain = 3
+        Welcome = 0,
+        Error = 1,
+        Plateform = 2,
+        Command = 3,
+        CommandChain = 4
     }
 }

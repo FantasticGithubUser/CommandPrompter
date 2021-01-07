@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 
-namespace CommandPrompter.Models.ViewModels.PlateformPageViewModel
+namespace CommandPrompter.Models.ViewModels
 {
     public class PlateformPageViewModel : PageViewModel<PlateformPage>
     {

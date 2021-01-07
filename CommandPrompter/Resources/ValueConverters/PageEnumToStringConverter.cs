@@ -21,8 +21,10 @@ namespace CommandPrompter.Resources
                 case PageEnum.CommandChain:
                     return "Resources/Pages/CommandChainPage.xaml";
                 case PageEnum.Error:
-                default:
                     return "Resources/Pages/ErrorPage.xaml";
+                case PageEnum.Welcome:
+                default:
+                    return "Resources/Pages/WelcomePage.xaml";
             }
         }
 
@@ -38,8 +40,10 @@ namespace CommandPrompter.Resources
                 case "Resources/Pages/CommandChain.xaml":
                     return PageEnum.CommandChain;
                 case "Resources/Pages/ErrorPage.xaml":
-                default:
                     return PageEnum.Error;
+                case "Resources/Pages/WelcomePage.xaml":
+                default:
+                    return PageEnum.Welcome;
             }
         }
     }

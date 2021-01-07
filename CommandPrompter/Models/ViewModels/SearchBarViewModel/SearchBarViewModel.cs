@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 
-namespace CommandPrompter.Models.ViewModels.SearchBarViewModel
+namespace CommandPrompter.Models.ViewModels
 {
     public class SearchBarViewModel : BaseViewModel
     {
