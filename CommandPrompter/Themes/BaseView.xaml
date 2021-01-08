@@ -52,6 +52,14 @@
                         </Border.ToolTip>
                     </Border>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="Selector.IsSelected" Value="True">
+                            <Setter TargetName="ItemBorder" Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="ItemBorder" Property="BorderBrush" Value="#f7584d"/>
+                        </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Trigger.EnterActions>
                                 <BeginStoryboard>

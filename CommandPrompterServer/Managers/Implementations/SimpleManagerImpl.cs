@@ -9,11 +9,22 @@ namespace CommandPrompterServer.Managers
 {
     public class SimpleManagerImpl<T> : BaseManagerImpl<T>, ISimpleManager<T> where T : SimpleDao<T>, new()
     {
+        public override T GetEntityById(string id)
+        {
+            var item = base.GetEntityById(id);
+            if(item != null)
+            {
+                AddHot(item.Id);
+            }
+            return item;
+        }
+
         public virtual T GetLastVersion(string id)
         {
             var ret = from entity in context.Set<T>() where entity.Id == id && entity.Deleted == false select entity;
             if (ret != null && ret.Count() != 0)
             {
+                AddHot(id);
                 return ret.FirstOrDefault()
                     .LastSimpleDao;
             }
@@ -25,6 +36,7 @@ namespace CommandPrompterServer.Managers
             var ret = from entity in context.Set<T>() where entity.LastVersionId == id && entity.Deleted == false select entity;
             if(ret != null && ret.Count() != 0)
             {
+                AddHot(id);
                 return ret.FirstOrDefault();
             }
             return null;
@@ -55,6 +67,7 @@ namespace CommandPrompterServer.Managers
             entity.DeletionTime = null;
             entity.DeletedBy = null;
             entity.LastVersionId = null;
+            entity.Hot = 0;
             context.Set<T>().Add(entity);
             return entity;
         }
@@ -105,6 +118,7 @@ namespace CommandPrompterServer.Managers
                 {
                     if(ret.Id == id)
                     {
+                        AddHot(id);
                         return item;
                     }
                     else
@@ -138,6 +152,16 @@ namespace CommandPrompterServer.Managers
                 return series.ToList<T>();
             }
             return null;
+        }
+
+        public void AddHot(string id)
+        {
+            var entity = GetEntityById(id);
+            if(entity.Hot < double.MaxValue)
+            {
+                entity.Hot++;
+                context.Set<T>().Update(entity);
+            }
         }
     }
 }

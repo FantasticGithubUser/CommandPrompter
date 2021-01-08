@@ -56,7 +56,6 @@ namespace CommandPrompter.Resources.Controls
             var newValue = e.NewValue as RelatedNameResponseDto;
             if(newValue != null)
             {
-                searchBar.MyText = newValue.Name;
                 (searchBar.DataContext as SearchBarViewModel).ClearRelatedNames();
             }
         }

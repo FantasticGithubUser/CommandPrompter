@@ -5,6 +5,7 @@ namespace CommandPrompterServer.Managers
 {
     public interface ISimpleManager<T> : IBaseManager<T> where T: SimpleDao<T>, new() 
     {
+        void AddHot(string id);
         T GetNewestEntityById(string id);
         T GetLastVersion(string id);
         T GetNextVersion(string id);

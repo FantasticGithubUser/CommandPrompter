@@ -85,5 +85,12 @@ namespace CommandPrompterServer.Models.Dao
         /// </summary>
         [ForeignKey("CreatorId")]
         public virtual User CreatorUser { get; set; }
+
+        /// <summary>
+        /// Indicates how hot the entry is.
+        /// </summary>
+        [Column("Hot")]
+        [Required]
+        public double Hot { get; set; }
     }
 }
