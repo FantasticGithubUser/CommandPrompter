@@ -60,6 +60,7 @@ namespace CommandPrompterServer.Controllers
             {
                 user.Password = request.NewPassword;
                 user.Email = request.Email;
+                user.Image = request.Image;
                 var temp = _userService.UpdateEntity(user);
             }
             return _mapper.Map<UserResponseDto>(user);

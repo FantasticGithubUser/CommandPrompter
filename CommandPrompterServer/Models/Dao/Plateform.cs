@@ -36,6 +36,18 @@ namespace CommandPrompterServer.Models.Dao
         [ForeignKey("PlateformId")]
         public virtual Plateform FatherPlateform { get; set; }
 
+        /// <summary>
+        /// Description
+        /// </summary>
+        [MaxLength(2047)]
+        [Column("Description")]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// The Image
+        /// </summary>
+        [Column("Image")]
+        public byte[] Image { get; set; }
         ///// <summary>
         ///// Just leave here.
         ///// </summary>

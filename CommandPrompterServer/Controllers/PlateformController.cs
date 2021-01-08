@@ -11,25 +11,27 @@ namespace CommandPrompterServer.Controllers
         [HttpPut]
         [Route("AddPlateform")]
         [Authorize]
-        public Plateform AddNewPlateform([FromBody] Plateform plateform)
+        public PlateformResponseDto AddNewPlateform([FromBody] PlateformRequestDto request)
         {
-            return _plateformService.AddNewEntity(plateform);
+            var plateform = _mapper.Map<Plateform>(request);
+            return _mapper.Map<PlateformResponseDto>(_plateformService.AddNewEntity(plateform));
         }
 
         [HttpPost]
         [Route("UpdatePlateform")]
         [Authorize]
-        public Plateform UpdatePlateform([FromBody] Plateform plateform)
+        public PlateformResponseDto UpdatePlateform([FromBody] PlateformRequestDto request)
         {
-            return _plateformService.UpdateEntity(plateform);
+            var plateform = _mapper.Map<Plateform>(request);
+            return _mapper.Map<PlateformResponseDto>(_plateformService.UpdateEntity(plateform));
         }
 
         [HttpGet]
         [Route("GetPlateform/{id}")]
         [Authorize]
-        public Plateform GetPlateformById([FromQuery] string id)
+        public PlateformResponseDto GetPlateformById([FromQuery] string id)
         {
-            return _plateformService.GetEntityById(id);
+            return _mapper.Map<PlateformResponseDto>(_plateformService.GetEntityById(id));
         }
 
         [HttpGet]
@@ -46,13 +48,24 @@ namespace CommandPrompterServer.Controllers
             }
             return ret;
         }
-        
+
         [HttpGet]
         [Route("GetAllDistinctPlateforms")]
         [Authorize]
-        public List<Plateform> GetAllDistinctPlateforms()
+        public List<PlateformResponseDto> GetAllDistinctPlateforms()
         {
-            return _plateformService.GetAllDistinctEntities();
+            var plateforms = _plateformService.GetAllDistinctEntities();
+            if (plateforms != null)
+            {
+                var response = new List<PlateformResponseDto>();
+                foreach (var item in plateforms)
+                {
+                    var plateform = _mapper.Map<PlateformResponseDto>(item);
+                    response.Add(plateform);
+                }
+                return response;
+            }
+            return null;
         }
     }
 }

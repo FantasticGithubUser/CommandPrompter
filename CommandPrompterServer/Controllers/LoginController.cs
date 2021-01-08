@@ -130,8 +130,9 @@ namespace CommandPrompterServer.Controllers
                     cur = _plateformService.AddNewEntity(new Models.Dao.Plateform
                     {
                         Name = "testForm" + i,
-                        PlateformVersion = "newVersion" + i
-                    });
+                        PlateformVersion = "newVersion" + i,
+                        Description = "This is the test description" + i
+                    }); ;
                     if (last != null)
                     {
                         cur.PlateformId = last.Id;

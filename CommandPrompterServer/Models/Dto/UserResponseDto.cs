@@ -10,7 +10,7 @@ namespace CommandPrompterServer.Models.Dto
         public string Username { get; set; }
         public string Email { get; set; }
         public double Contributes { get; set; }
-
         public DateTime? RegisterTime { get; set; }
+        public byte[] Image { get; set; }
     }
 }

@@ -60,5 +60,11 @@ namespace CommandPrompterServer.Models.Dao
 
         [Column("LastLoginTime")]
         public DateTime? LastLoginTime { get; set; }
+
+        /// <summary>
+        /// User Avatar.
+        /// </summary>
+        [Column("Image")]
+        public byte[] Image { get; set; }
     }
 }

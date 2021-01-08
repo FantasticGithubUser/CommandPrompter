@@ -5,15 +5,12 @@ using System.Threading.Tasks;
 
 namespace CommandPrompterServer.Models.Dto
 {
-    public class PlateformResponseDto
+    public class PlateformRequestDto
     {
-        public string Id { get; set; }
-        public string CreatorId { get; set; }
         public string Name { get; set; }
         public string PlateformVersion { get; set; }
         public string PlateformId { get; set; }
         public string Description { get; set; }
         public byte[] Image { get; set; }
-
     }
 }

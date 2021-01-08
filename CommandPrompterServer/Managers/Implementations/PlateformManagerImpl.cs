@@ -20,7 +20,8 @@ namespace CommandPrompterServer.Managers
                         Id = item.Id,
                         Name = item.Name,
                         Type = "Plateform",
-                        Version = item.Version
+                        Version = item.Version,
+                        Description = item.Description
                     });
                 }
                 return list;
