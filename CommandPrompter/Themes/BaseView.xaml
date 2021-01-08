@@ -32,12 +32,15 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Border BorderBrush="White" Background="Transparent" Padding="5" CornerRadius="5" Margin="10" BorderThickness="1">
+                    <Border Name="ItemBorder" BorderBrush="White" Background="Transparent" Padding="5" CornerRadius="5" Margin="10" BorderThickness="1" RenderTransformOrigin="0.5,0.5">
+                        <Border.RenderTransform>
+                            <ScaleTransform CenterX="0.5" CenterY="0.5"/>
+                        </Border.RenderTransform>
                         <StackPanel>
                             <Viewbox Width="70" Height="70">
                                 <Image Source="{Binding Image,Converter={res:ByteArrayToImageConverter}}"/>
                             </Viewbox>
-                            <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+                            <TextBlock Name="NameText" Text="{Binding Name}" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" />
                         </StackPanel>
                         <Border.ToolTip>
                             <ToolTip Style="{StaticResource TileViewToolTip}" Width="100">
@@ -48,6 +51,42 @@
                             </ToolTip>
                         </Border.ToolTip>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="ItemBorder" Storyboard.TargetProperty="(RenderTransform).ScaleX" To="1.2" Duration="0:0:0.2" FillBehavior="HoldEnd">
+                                            <DoubleAnimation.EasingFunction>
+                                                <PowerEase Power="2" EasingMode="EaseIn"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation Storyboard.TargetName="ItemBorder" Storyboard.TargetProperty="(RenderTransform).ScaleY" To="1.2" Duration="0:0:0.2" FillBehavior="HoldEnd">
+                                            <DoubleAnimation.EasingFunction>
+                                                <PowerEase Power="2" EasingMode="EaseIn"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="ItemBorder" Storyboard.TargetProperty="(RenderTransform).ScaleX" Duration="0:0:0.2" FillBehavior="Stop">
+                                            <DoubleAnimation.EasingFunction>
+                                                <PowerEase Power="2" EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation Storyboard.TargetName="ItemBorder" Storyboard.TargetProperty="(RenderTransform).ScaleY" Duration="0:0:0.2" FillBehavior="Stop">
+                                            <DoubleAnimation.EasingFunction>
+                                                <PowerEase Power="2" EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
