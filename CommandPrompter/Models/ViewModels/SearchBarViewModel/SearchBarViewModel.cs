@@ -20,14 +20,14 @@ namespace CommandPrompter.Models.ViewModels
         {
             RelatedNames.Clear();
             searchBar.IsLoading = true;
-
+            searchBar.IsExpanded = false;
             if (!string.IsNullOrEmpty(name))
             {
                 _ = HttpRequestHelper.GetAsync<List<RelatedNameResponseDto>>(RouteHelper.ReplaceParam(RouteHelper.GetRelatedNames, name, count.ToString()), res =>
                    {
                        searchBar.Dispatcher.Invoke(() =>
                        {
-                           if (res != null)
+                           if (res != null && res.Count != 0)
                            {
                                foreach (var item in res)
                                {

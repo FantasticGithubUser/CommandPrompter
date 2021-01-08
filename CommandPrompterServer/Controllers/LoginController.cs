@@ -122,17 +122,19 @@ namespace CommandPrompterServer.Controllers
             });
             AccountHolder.user.Value = user;
             Models.Dao.Plateform cur = null, last = null;
-            
+
             var action = new Action(() =>
             {
-                for (int i = 0; i < 100; i++)
+                var image = System.IO.File.ReadAllBytes(@"C:\Users\Jiner\Pictures\Camera Roll\test.jpg");
+                for (int i = 0; i < 10; i++)
                 {
                     cur = _plateformService.AddNewEntity(new Models.Dao.Plateform
                     {
                         Name = "testForm" + i,
                         PlateformVersion = "newVersion" + i,
-                        Description = "This is the test description" + i
-                    }); ;
+                        Description = "This is the test description" + i,
+                        Image = image
+                    });
                     if (last != null)
                     {
                         cur.PlateformId = last.Id;

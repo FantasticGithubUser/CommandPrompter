@@ -11,6 +11,8 @@ namespace CommandPrompter.Models.Dtos.Responses
         public string Name { get; set; }
         public string PlateformVersion { get; set; }
         public string CreatorId { get; set; }
+        public byte[] Image { get; set; }
+        public string Description { get; set; }
 
     }
 }

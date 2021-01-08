@@ -4,12 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CommandPrompter.Resources.Pages"
+      xmlns:control="clr-namespace:CommandPrompter.Resources.Controls"
+      xmlns:res="clr-namespace:CommandPrompter.Resources"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="500"
       Title="PlateformPage">
 
     <Grid>
-        <ListView Style="{StaticResource GenericListView}" ItemsSource="{Binding Plateforms}">
+        <!--<ListView Style="{StaticResource GenericListView}" ItemsSource="{Binding Plateforms}">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
@@ -21,6 +23,14 @@
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
+        </ListView>-->
+        <ListView ItemsSource="{Binding Plateforms}" Foreground="White" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+            <ListView.View>
+                <control:TileImageView>
+                </control:TileImageView>
+            </ListView.View>
         </ListView>
+        <Image Source="Resources/Images/test.jpg"/>
+
     </Grid>
 </Page>
