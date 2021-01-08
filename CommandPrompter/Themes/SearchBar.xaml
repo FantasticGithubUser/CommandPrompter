@@ -169,6 +169,11 @@
                                                 </Label>
                                             </StackPanel>
                                         </DockPanel>
+                                        <DataTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Cursor" Value="Hand"/>
+                                            </Trigger>
+                                        </DataTemplate.Triggers>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>

@@ -18,17 +18,19 @@ namespace CommandPrompter.Models.ViewModels
         }
         public void GetRelatedNames(string name = "", int count = 100)
         {
-            RelatedNames.Clear();
             searchBar.IsLoading = true;
             searchBar.IsExpanded = false;
             if (!string.IsNullOrEmpty(name))
             {
                 _ = HttpRequestHelper.GetAsync<List<RelatedNameResponseDto>>(RouteHelper.ReplaceParam(RouteHelper.GetRelatedNames, name, count.ToString()), res =>
                    {
+                       RelatedNames.Clear();
                        searchBar.Dispatcher.Invoke(() =>
                        {
+                           RelatedNames.Clear();
                            if (res != null && res.Count != 0)
                            {
+                               RelatedNames.Clear();
                                foreach (var item in res)
                                {
                                    RelatedNames.Add(item);
