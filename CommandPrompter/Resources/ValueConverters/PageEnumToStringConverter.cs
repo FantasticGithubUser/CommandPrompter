@@ -1,9 +1,6 @@
 ﻿using CommandPrompter.Helpers;
-using CommandPrompter.Resources.Pages;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 
 namespace CommandPrompter.Resources
 {
@@ -20,6 +17,10 @@ namespace CommandPrompter.Resources
                     return "Resources/Pages/CommandPage.xaml";
                 case PageEnum.CommandChain:
                     return "Resources/Pages/CommandChainPage.xaml";
+                case PageEnum.CommandParameter:
+                    return "Resources/Pages/CommandParameterPage.xaml";
+                case PageEnum.User:
+                    return "Resources/Pages/UserPage.xaml";
                 case PageEnum.Error:
                     return "Resources/Pages/ErrorPage.xaml";
                 case PageEnum.Welcome:
@@ -39,6 +40,10 @@ namespace CommandPrompter.Resources
                     return PageEnum.Command;
                 case "Resources/Pages/CommandChain.xaml":
                     return PageEnum.CommandChain;
+                case "Resources/Pages/CommandParameterPage.xaml":
+                    return PageEnum.CommandParameter;
+                case "Resources/Pages/UserPage.xaml":
+                    return PageEnum.User;
                 case "Resources/Pages/ErrorPage.xaml":
                     return PageEnum.Error;
                 case "Resources/Pages/WelcomePage.xaml":

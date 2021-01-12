@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="70" d:DesignWidth="250">
     <Grid Margin="20,6,6,20">
-    <Button Style="{StaticResource SideMenuButton}" Command="{Binding openPageCommand}">
+    <Button Style="{StaticResource SideMenuButton}" Command="{Binding switchPageCommand}">
             <StackPanel Orientation="Horizontal">
             <TextBlock Margin="0,0,10,0">
                 <Run FontFamily="{StaticResource FontAwesome}" Text="{Binding Icon}"></Run>

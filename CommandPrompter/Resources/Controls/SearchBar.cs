@@ -57,6 +57,7 @@ namespace CommandPrompter.Resources.Controls
             if(newValue != null)
             {
                 (searchBar.DataContext as SearchBarViewModel).ClearRelatedNames();
+                (searchBar.DataContext as SearchBarViewModel).JumpToDetail(newValue.Id);
             }
         }
 

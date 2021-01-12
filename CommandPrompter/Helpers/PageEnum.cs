@@ -7,6 +7,8 @@ namespace CommandPrompter.Helpers
         Error = 1,
         Plateform = 2,
         Command = 3,
-        CommandChain = 4
+        CommandChain = 4,
+        CommandParameter = 5,
+        User = 6
     }
 }

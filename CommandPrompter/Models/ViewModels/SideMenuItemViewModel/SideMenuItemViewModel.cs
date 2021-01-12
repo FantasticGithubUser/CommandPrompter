@@ -10,29 +10,20 @@ using System.Windows.Input;
 
 namespace CommandPrompter.Models.ViewModels
 {
-    public class SideMenuItemViewModel :BaseViewModel
+    public class SideMenuItemViewModel :SimpleViewModel
     {
         public bool CommandRunning { get; private set; }
-        public ICommand openPageCommand { get; private set; }
 
         public string Icon { get; set; }
         public string ItemName { get; set; }
 
-        private PageEnum page { get; set; }
+        
         public SideMenuItemViewModel(PageEnum page)
         {
-            this.page = page;
-            openPageCommand = new RelayCommand(async () => await ShowPageAsync());
-
+            this.SwitchPage = page;
         }
 
-        private async Task ShowPageAsync()
-        {
-            await RunCommandAsync(() => CommandRunning, async () =>
-            {
-                await PageSwitchHelper.SwitchPage(page);
-            });
-        }
+       
 
         
     }

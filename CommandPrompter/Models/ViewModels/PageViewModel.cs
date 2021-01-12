@@ -6,7 +6,7 @@ using System.Windows.Controls;
 
 namespace CommandPrompter.Models.ViewModels
 {
-    public abstract class PageViewModel<T> : BaseViewModel where T : Page
+    public abstract class PageViewModel<T> : SimpleViewModel where T : Page
     {
         protected T page;
         public PageViewModel(T page)
