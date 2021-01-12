@@ -71,7 +71,7 @@ namespace CommandPrompterServer.Controllers
 
         [HttpPost]
         [Route("GetEntities")]
-        [AllowAnonymous]
+        [Authorize]
         public List<PlateformResponseDto> GetEntities([FromBody] List<QueryField> fields)
         {
             var plateforms = _plateformService.GetEntities(fields);
