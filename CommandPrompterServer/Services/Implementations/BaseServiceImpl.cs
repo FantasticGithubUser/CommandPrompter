@@ -1,4 +1,5 @@
-﻿using CommandPrompterServer.Managers;
+﻿using CommandPrompterServer.Helpers;
+using CommandPrompterServer.Managers;
 using CommandPrompterServer.Models.Dao;
 using System.Collections.Generic;
 
@@ -26,6 +27,11 @@ namespace CommandPrompterServer.Services
         public virtual List<T> GetAllEntities()
         {
             return _baseManager.GetAllEntities();
+        }
+
+        public List<T> GetEntities(List<QueryField> fields)
+        {
+            return _baseManager.GetEntities(fields);
         }
 
         public virtual T GetEntityById(string id)

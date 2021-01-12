@@ -1,0 +1,70 @@
+2021/1/11 21:22:26: System.ArgumentException: Incorrect number of parameters supplied for lambda declaration
+   at System.Linq.Expressions.Expression.ValidateLambdaArgs(Type delegateType, Expression& body, ReadOnlyCollection`1 parameters, String paramName)
+   at System.Linq.Expressions.Expression.Lambda[TDelegate](Expression body, String name, Boolean tailCall, IEnumerable`1 parameters)
+   at System.Linq.Expressions.Expression.Lambda[TDelegate](Expression body, Boolean tailCall, IEnumerable`1 parameters)
+   at System.Linq.Expressions.Expression.Lambda[TDelegate](Expression body, ParameterExpression[] parameters)
+   at CommandPrompterServer.Helpers.QueryHelper.FormLinq[T](List`1 fields) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\QueryHelper.cs:line 111
+   at CommandPrompterServer.Managers.BaseManagerImpl`1.GetEntities(List`1 fields) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\BaseManagerImpl.cs:line 66
+   at Castle.Proxies.Invocations.IBaseManager`1_GetEntities_2.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/12 21:22:17: System.InvalidOperationException: variable '' of type 'System.String' referenced from scope '', but it is not defined
+   at System.Linq.Expressions.Compiler.VariableBinder.Reference(ParameterExpression node, VariableStorageKind storage)
+   at System.Linq.Expressions.Compiler.VariableBinder.VisitParameter(ParameterExpression node)
+   at System.Linq.Expressions.ParameterExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.Compiler.VariableBinder.Visit(Expression node)
+   at System.Linq.Expressions.ExpressionVisitor.VisitMethodCall(MethodCallExpression node)
+   at System.Linq.Expressions.MethodCallExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.Compiler.VariableBinder.Visit(Expression node)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(ReadOnlyCollection`1 nodes)
+   at System.Linq.Expressions.Compiler.VariableBinder.VisitLambda[T](Expression`1 node)
+   at System.Linq.Expressions.Expression`1.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.Compiler.VariableBinder.Visit(Expression node)
+   at System.Linq.Expressions.Compiler.LambdaCompiler.Compile(LambdaExpression lambda)
+   at System.Linq.Expressions.Expression`1.Compile(Boolean preferInterpretation)
+   at System.Linq.Expressions.Expression`1.Compile()
+   at CommandPrompterServer.Helpers.QueryHelper.FormLambda[T](List`1 fields) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\QueryHelper.cs:line 185
+   at CommandPrompterServer.Managers.BaseManagerImpl`1.GetEntities(List`1 fields) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\BaseManagerImpl.cs:line 66
+   at Castle.Proxies.Invocations.IBaseManager`1_GetEntities_2.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/12 21:22:42: System.InvalidOperationException: variable '' of type 'System.String' referenced from scope '', but it is not defined
+   at System.Linq.Expressions.Compiler.VariableBinder.Reference(ParameterExpression node, VariableStorageKind storage)
+   at System.Linq.Expressions.Compiler.VariableBinder.VisitParameter(ParameterExpression node)
+   at System.Linq.Expressions.ParameterExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.Compiler.VariableBinder.Visit(Expression node)
+   at System.Linq.Expressions.ExpressionVisitor.VisitMethodCall(MethodCallExpression node)
+   at System.Linq.Expressions.MethodCallExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.Compiler.VariableBinder.Visit(Expression node)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(ReadOnlyCollection`1 nodes)
+   at System.Linq.Expressions.Compiler.VariableBinder.VisitLambda[T](Expression`1 node)
+   at System.Linq.Expressions.Expression`1.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.Compiler.VariableBinder.Visit(Expression node)
+   at System.Linq.Expressions.Compiler.LambdaCompiler.Compile(LambdaExpression lambda)
+   at System.Linq.Expressions.Expression`1.Compile(Boolean preferInterpretation)
+   at System.Linq.Expressions.Expression`1.Compile()
+   at CommandPrompterServer.Helpers.QueryHelper.FormLambda[T](List`1 fields) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\QueryHelper.cs:line 185
+   at CommandPrompterServer.Managers.BaseManagerImpl`1.GetEntities(List`1 fields) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\BaseManagerImpl.cs:line 66
+   at Castle.Proxies.Invocations.IBaseManager`1_GetEntities_2.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18
+2021/1/12 21:27:26: System.InvalidOperationException: variable '' of type 'System.String' referenced from scope '', but it is not defined
+   at System.Linq.Expressions.Compiler.VariableBinder.Reference(ParameterExpression node, VariableStorageKind storage)
+   at System.Linq.Expressions.Compiler.VariableBinder.VisitParameter(ParameterExpression node)
+   at System.Linq.Expressions.ParameterExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.Compiler.VariableBinder.Visit(Expression node)
+   at System.Linq.Expressions.ExpressionVisitor.VisitMethodCall(MethodCallExpression node)
+   at System.Linq.Expressions.MethodCallExpression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.Compiler.VariableBinder.Visit(Expression node)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(ReadOnlyCollection`1 nodes)
+   at System.Linq.Expressions.Compiler.VariableBinder.VisitLambda[T](Expression`1 node)
+   at System.Linq.Expressions.Expression`1.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.Compiler.VariableBinder.Visit(Expression node)
+   at System.Linq.Expressions.Compiler.LambdaCompiler.Compile(LambdaExpression lambda)
+   at System.Linq.Expressions.Expression`1.Compile(Boolean preferInterpretation)
+   at System.Linq.Expressions.Expression`1.Compile()
+   at CommandPrompterServer.Helpers.QueryHelper.FormLambda[T](List`1 fields) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\QueryHelper.cs:line 185
+   at CommandPrompterServer.Managers.BaseManagerImpl`1.GetEntities(List`1 fields) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Managers\Implementations\BaseManagerImpl.cs:line 66
+   at Castle.Proxies.Invocations.IBaseManager`1_GetEntities_2.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CommandPrompterServer.Helpers.ManagerInterceptor.Intercept(IInvocation invocation) in C:\Users\Jiner\source\repos\CP\CommandPrompterServer\Helpers\ManagerInterceptor.cs:line 18

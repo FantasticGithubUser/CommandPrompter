@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CommandPrompterServer.Helpers;
 using CommandPrompterServer.Models.Dao;
+using Microsoft.EntityFrameworkCore;
 
 namespace CommandPrompterServer.Managers
 {
@@ -60,5 +61,11 @@ namespace CommandPrompterServer.Managers
             return ret == null ? null : ret.ToList<T>();
         }
 
+        public List<T> GetEntities(List<QueryField> fields)
+        {
+            var lambda = QueryHelper.FormLambda<T>(fields);
+            var list = context.Set<T>().Where(lambda).Select(item => item);
+            return list.ToList<T>();
+        }
     }
 }

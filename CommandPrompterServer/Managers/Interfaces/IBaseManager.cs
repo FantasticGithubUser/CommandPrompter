@@ -1,4 +1,7 @@
-﻿using CommandPrompterServer.Models.Dao;
+﻿using CommandPrompterServer.Helpers;
+using CommandPrompterServer.Models.Dao;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 
 namespace CommandPrompterServer.Managers
@@ -43,5 +46,12 @@ namespace CommandPrompterServer.Managers
         /// <returns></returns>
         List<T> GetAllEntities();
 
+        /// <summary>
+        /// Customize the filters.
+        /// </summary>
+        /// <param name="fields"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        List<T> GetEntities(List<QueryField> fields);
     }
 }

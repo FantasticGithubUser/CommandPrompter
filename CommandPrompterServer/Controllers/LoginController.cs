@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace CommandPrompterServer.Controllers
 {
@@ -122,7 +123,6 @@ namespace CommandPrompterServer.Controllers
             });
             AccountHolder.user.Value = user;
             Models.Dao.Plateform cur = null, last = null;
-
             var action = new Action(() =>
             {
                 var image = System.IO.File.ReadAllBytes(@"C:\Users\Jiner\Pictures\Camera Roll\test.jpg");

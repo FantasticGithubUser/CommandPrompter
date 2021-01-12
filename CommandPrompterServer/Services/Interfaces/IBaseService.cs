@@ -1,4 +1,5 @@
-﻿using CommandPrompterServer.Models.Dao;
+﻿using CommandPrompterServer.Helpers;
+using CommandPrompterServer.Models.Dao;
 using System.Collections.Generic;
 
 namespace CommandPrompterServer.Services
@@ -18,6 +19,8 @@ namespace CommandPrompterServer.Services
         T DeleteEntity(string id);
 
         List<T> GetAllEntities();
+
+        List<T> GetEntities(List<QueryField> fields);
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using CommandPrompterServer.Models.Dao;
+﻿using CommandPrompterServer.Helpers;
+using CommandPrompterServer.Models.Dao;
 using CommandPrompterServer.Models.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -55,6 +56,25 @@ namespace CommandPrompterServer.Controllers
         public List<PlateformResponseDto> GetAllDistinctPlateforms()
         {
             var plateforms = _plateformService.GetAllDistinctEntities();
+            if (plateforms != null)
+            {
+                var response = new List<PlateformResponseDto>();
+                foreach (var item in plateforms)
+                {
+                    var plateform = _mapper.Map<PlateformResponseDto>(item);
+                    response.Add(plateform);
+                }
+                return response;
+            }
+            return null;
+        }
+
+        [HttpPost]
+        [Route("GetEntities")]
+        [AllowAnonymous]
+        public List<PlateformResponseDto> GetEntities([FromBody] List<QueryField> fields)
+        {
+            var plateforms = _plateformService.GetEntities(fields);
             if (plateforms != null)
             {
                 var response = new List<PlateformResponseDto>();

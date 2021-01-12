@@ -14,5 +14,6 @@ namespace CommandPrompterServer.Managers
         void UpdateLastLoginTime(string id);
 
         User ValidateUserInfo(string username, string password);
+
     }
 }
