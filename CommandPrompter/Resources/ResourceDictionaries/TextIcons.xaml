@@ -8,4 +8,6 @@
     <sys:String x:Key="Search">&#xf002;</sys:String>
     <sys:String x:Key="Welcome">&#xf091;</sys:String>
     <sys:String x:Key="User">&#xf0c0;</sys:String>
+    <sys:String x:Key="Users">&#xf007;</sys:String>
+    <sys:String x:Key="CommandParameter">&#xf075;</sys:String>
 </ResourceDictionary>

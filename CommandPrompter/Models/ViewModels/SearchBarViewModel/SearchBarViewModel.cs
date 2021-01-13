@@ -89,7 +89,7 @@ namespace CommandPrompter.Models.ViewModels
                            _ = ShowPageAsync();
                            break;
                        case "User":
-                           SwitchPage = PageEnum.User;
+                           SwitchPage = PageEnum.Users;
                            _ = ShowPageAsync();
                            break;
                        default:

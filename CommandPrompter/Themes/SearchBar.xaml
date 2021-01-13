@@ -141,10 +141,14 @@
                             <ListView MaxHeight="{Binding Path=ActualHeight, RelativeSource={RelativeSource AncestorType=root:MainWindow}, Converter={res:HeightToHeightMinusCaption}}" ItemsSource="{Binding RelatedNames}" Style="{StaticResource SearchBarListView}" SelectedItem="{Binding Path=SelectedItem, RelativeSource={RelativeSource AncestorType=local:SearchBar}, Mode=TwoWay}" Background="#1f1e1e" Foreground="White">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
-                                        <DockPanel Width="236" Margin="1,0,0,0">
+                                        <DockPanel Width="286" Margin="1,0,0,0">
                                             <DockPanel.ToolTip>
                                                 <ToolTip Style="{StaticResource SearchBarToolTip}" Foreground="White" Background="Transparent" Visibility="{Binding Description, Converter={res:EmptyStringToVisibilityConverter}}">
-                                                    <TextBlock TextWrapping="Wrap" MaxWidth="200" Text="{Binding Description}"/>
+                                                    <StackPanel MaxWidth="200">
+                                                        <TextBlock Text="{Binding Name}" Foreground="Wheat" Margin="0,0,0,5"/>
+                                                        <TextBlock TextWrapping="Wrap" Text="{Binding Description}"/>
+                                                    </StackPanel>
+                                                    
                                                 </ToolTip>
                                             </DockPanel.ToolTip>
                                             <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Background="Transparent">

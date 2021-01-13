@@ -9,6 +9,6 @@ namespace CommandPrompter.Helpers
         Command = 3,
         CommandChain = 4,
         CommandParameter = 5,
-        User = 6
+        Users = 6
     }
 }

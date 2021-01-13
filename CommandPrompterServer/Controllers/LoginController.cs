@@ -123,7 +123,9 @@ namespace CommandPrompterServer.Controllers
             });
             AccountHolder.user.Value = user;
             Models.Dao.Plateform cur = null, last = null;
-            var action = new Action(() =>
+
+            var plateformId = "";
+            var InitialPlateforms = new Action(() =>
             {
                 var image = System.IO.File.ReadAllBytes(@"C:\Users\Jiner\Pictures\Camera Roll\test.jpg");
                 for (int i = 0; i < 10; i++)
@@ -138,12 +140,63 @@ namespace CommandPrompterServer.Controllers
                     if (last != null)
                     {
                         cur.PlateformId = last.Id;
+                        plateformId = last.Id;
                         _plateformService.UpdateEntity(cur);
                     }
                     last = cur;
                 }
             });
-            Parallel.Invoke(action);
+            InitialPlateforms.Invoke();
+
+            var randomStr = new Func<string>(() =>
+            {
+                var rand = new Random();
+                var count = rand.Next(1, 20);
+                var str = "";
+                for(int i = 0; i < count; i++)
+                {
+                    var letter = rand.Next(0, 26);
+                    letter = letter + 65;
+                    char cha = Convert.ToChar(letter);
+                    str = str + cha;
+                }
+                return str;
+            });
+
+            var cmdId = "";
+            var InitialCommand = new Action(() =>
+            {
+                for(int i = 0; i < 30; i++)
+                {
+                    var cmd = _commandService.AddNewEntity(new Models.Dao.Command
+                    {
+                        Name = randomStr.Invoke(),
+                        PlateformId = plateformId,
+                        Description = randomStr.Invoke(),
+                        Template = randomStr.Invoke()
+                    });
+                    cmdId = cmd.Id;
+                }
+            });
+            InitialCommand.Invoke();
+
+            var cmdParamId = "";
+            var InitialCommandParam = new Action(() =>
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    var cmdParam = _commandParameterService.AddNewEntity(new Models.Dao.CommandParameter
+                    {
+                        CommandId = cmdId,
+                        ParameterOrder = i,
+                        Name = randomStr.Invoke(),
+                        AllowedValueExample = randomStr.Invoke(),
+                        Description = randomStr.Invoke()
+                    });
+                    cmdParamId = cmdParam.Id;
+                }
+            });
+            InitialCommandParam.Invoke();
 
         }
         /// <summary>

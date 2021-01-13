@@ -62,7 +62,7 @@
 
             </StackPanel>
             <StackPanel DockPanel.Dock="Right">
-                <control:SearchBar HorizontalAlignment="Right" WindowChrome.IsHitTestVisibleInChrome="True" FontFamily="{StaticResource FontAwesome}" Width="250" Margin="0,5,30,2">
+                <control:SearchBar HorizontalAlignment="Right" WindowChrome.IsHitTestVisibleInChrome="True" FontFamily="{StaticResource FontAwesome}" Width="300" Margin="0,5,30,2">
 
                 </control:SearchBar>
             </StackPanel>
