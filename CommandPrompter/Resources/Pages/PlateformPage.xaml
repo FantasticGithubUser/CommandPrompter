@@ -11,19 +11,6 @@
       Title="PlateformPage">
 
     <Grid>
-        <!--<ListView Style="{StaticResource GenericListView}" ItemsSource="{Binding Plateforms}">
-            <ListView.View>
-                <GridView>
-                    <GridView.Columns>
-                        <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
-                        <GridViewColumn Header="Version" DisplayMemberBinding="{Binding Version}"></GridViewColumn>
-                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
-                        <GridViewColumn Header="PlateformVersion" DisplayMemberBinding="{Binding PlateformVersion}"></GridViewColumn>
-                        <GridViewColumn Header="CreatorId" DisplayMemberBinding="{Binding CreatorId}"></GridViewColumn>
-                    </GridView.Columns>
-                </GridView>
-            </ListView.View>
-        </ListView>-->
         <ListView ItemsSource="{Binding Plateforms}" Foreground="White" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
             <ListView.View>
                 <control:TileImageView>

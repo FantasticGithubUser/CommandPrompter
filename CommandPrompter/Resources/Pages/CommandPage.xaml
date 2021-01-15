@@ -9,6 +9,18 @@
       Title="CommandPage">
 
     <Grid>
-        
+        <ListView Style="{StaticResource GenericListView}" ItemsSource="{Binding Commands}">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                        <GridViewColumn Header="Version" DisplayMemberBinding="{Binding Version}"></GridViewColumn>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                        <GridViewColumn Header="Template" DisplayMemberBinding="{Binding Template}"></GridViewColumn>
+                        <GridViewColumn Header="CreatorId" DisplayMemberBinding="{Binding CreatorId}"></GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>

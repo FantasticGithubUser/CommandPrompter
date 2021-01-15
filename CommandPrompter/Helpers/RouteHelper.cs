@@ -17,6 +17,14 @@ namespace CommandPrompter.Helpers
         /// 1 => count
         /// </summary>
         public static string GetRelatedNames => GlobalConfiguration.ServiceAddress + @"Common/GetRelatedNames/{0}/{1}";
+
+        #region Command
+        public static string GetCommandsByFilter => GlobalConfiguration.ServiceAddress + @"Command/GetCommandsByFilter";
+
+        public static string GetCommandById => GlobalConfiguration.ServiceAddress + @"Command/GetCommandById";
+
+        public static string GetAllCommands => GlobalConfiguration.ServiceAddress + @"Command/GetAllCommands";
+        #endregion Command
         public static string ReplaceParam(string route, params string[] parameters)
         {
             var ret = route;

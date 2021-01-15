@@ -1,5 +1,4 @@
-﻿using CommandPrompter.Models.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -12,17 +11,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CommandPrompter.Resources.Pages
+namespace CommandPrompter.Resources.PageDetails
 {
     /// <summary>
-    /// CommandPage.xaml 的交互逻辑
+    /// PlateformDetailPage.xaml 的交互逻辑
     /// </summary>
-    public partial class CommandPage : Page
+    public partial class PlateformDetailPage : Page
     {
-        public CommandPage()
+        public PlateformDetailPage()
         {
             InitializeComponent();
-            this.DataContext = new CommandPageViewModel(this);
         }
     }
 }

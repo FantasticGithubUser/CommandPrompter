@@ -6,7 +6,7 @@ namespace CommandPrompter.Resources
 {
     public class PageEnumToStringConverter : BaseValueConverter<PageEnumToStringConverter>
     {
-        public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public override object Convert(object value, System.Type targetType, object parameter, CultureInfo culture)
         {
             var pageEnum = (PageEnum)value;
             switch (pageEnum)
@@ -29,7 +29,7 @@ namespace CommandPrompter.Resources
             }
         }
 
-        public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public override object ConvertBack(object value, System.Type targetType, object parameter, CultureInfo culture)
         {
             var str = (string)value;
             switch (str)
