@@ -12,8 +12,6 @@ namespace CommandPrompter.Models.ViewModels
 {
     public class SideMenuItemViewModel :SimpleViewModel
     {
-        public bool CommandRunning { get; private set; }
-
         public string Icon { get; set; }
         public string ItemName { get; set; }
 

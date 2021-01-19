@@ -24,5 +24,7 @@ namespace CommandPrompter.Models.ViewModels
                 await PageSwitchHelper.SwitchPage(SwitchPage);
             });
         }
+
+        
     }
 }

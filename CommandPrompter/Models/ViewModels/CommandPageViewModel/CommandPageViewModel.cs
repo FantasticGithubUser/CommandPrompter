@@ -29,5 +29,6 @@ namespace CommandPrompter.Models.ViewModels
                 });
             });
         }
+
     }
 }

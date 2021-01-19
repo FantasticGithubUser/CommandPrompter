@@ -17,6 +17,5 @@ namespace CommandPrompter.Models.ViewModels
         {
             page.Dispatcher.Invoke(action);
         }
-
     }
 }

@@ -49,6 +49,5 @@ namespace CommandPrompter.Helpers
             var res = ModelBindingHelper.BindModel<T>(response.Content.ReadAsStringAsync().Result);
             callback.Invoke(res);
         }
-        
     }
 }

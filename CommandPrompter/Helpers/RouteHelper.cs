@@ -6,24 +6,30 @@ namespace CommandPrompter.Helpers
 {
     public static class RouteHelper
     {
-        public static string GetAllUsers => GlobalConfiguration.ServiceAddress + @"User/GetAllUsers";
+        public static string Address => GlobalConfiguration.ServiceAddress;
+        public static string GetAllUsers => Address + @"User/GetAllUsers";
 
-        public static string Login => GlobalConfiguration.ServiceAddress + @"Login/Login";
+        public static string Login => Address + @"Login/Login";
 
-        public static string GetAllPlateforms => GlobalConfiguration.ServiceAddress + @"Plateform/GetAllPlateforms";
+        #region Plateform
+        public static string GetAllPlateforms => Address + @"Plateform/GetAllPlateforms";
+        public static string GetPlateforms => Address + @"Plateform/GetEntities";
 
+        #endregion Plateform
         /// <summary>
         /// 0 => name,
         /// 1 => count
         /// </summary>
-        public static string GetRelatedNames => GlobalConfiguration.ServiceAddress + @"Common/GetRelatedNames/{0}/{1}";
+        public static string GetRelatedNames => Address + @"Common/GetRelatedNames/{0}/{1}";
 
         #region Command
-        public static string GetCommandsByFilter => GlobalConfiguration.ServiceAddress + @"Command/GetCommandsByFilter";
+        public static string GetCommandsByFilter => Address + @"Command/GetCommandsByFilter";
 
-        public static string GetCommandById => GlobalConfiguration.ServiceAddress + @"Command/GetCommandById";
+        public static string GetCommandById => Address + @"Command/GetCommandById";
 
-        public static string GetAllCommands => GlobalConfiguration.ServiceAddress + @"Command/GetAllCommands";
+        public static string GetAllCommands => Address + @"Command/GetAllCommands";
+
+        public static string GetCommands => Address + @"Command/GetEntities";
         #endregion Command
         public static string ReplaceParam(string route, params string[] parameters)
         {

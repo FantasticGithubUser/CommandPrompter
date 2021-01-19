@@ -70,26 +70,38 @@ namespace CommandPrompter.Models.ViewModels
             _ = RunCommandAsync(() => CommandRunning, async () =>
                {
                    var item = searchBar.SelectedItem;
+                   var contextQuery = new List<QueryField> { new QueryField
+                   {
+                       Name = "Id",
+                       Value = item.Id,
+                       Operator = Operator.Equals,
+                       Type = Helpers.Type.String
+                   } };
                    switch (item.Type)
                    {
                        case "Plateform":
                            SwitchPage = PageEnum.Plateform;
+                           PageSwitchHelper.PutContext("PlateformPageInitQuery", contextQuery);
                            _ = ShowPageAsync();
                            break;
                        case "Command":
                            SwitchPage = PageEnum.Command;
+                           PageSwitchHelper.PutContext("CommandPageInitQuery", contextQuery);
                            _ = ShowPageAsync();
                            break;
                        case "CommandParameter":
                            SwitchPage = PageEnum.CommandParameter;
+                           PageSwitchHelper.PutContext("CommandParameterPageInitQuery", contextQuery);
                            _ = ShowPageAsync();
                            break;
                        case "CommandChain":
                            SwitchPage = PageEnum.CommandChain;
+                           PageSwitchHelper.PutContext("CommandChainPageInitQuery", contextQuery);
                            _ = ShowPageAsync();
                            break;
                        case "User":
-                           SwitchPage = PageEnum.Users;
+                           SwitchPage = PageEnum.User;
+                           PageSwitchHelper.PutContext("UserPageInitQuery", contextQuery);
                            _ = ShowPageAsync();
                            break;
                        default:

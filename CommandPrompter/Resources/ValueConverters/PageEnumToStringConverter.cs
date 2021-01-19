@@ -19,7 +19,7 @@ namespace CommandPrompter.Resources
                     return "Resources/Pages/CommandChainPage.xaml";
                 case PageEnum.CommandParameter:
                     return "Resources/Pages/CommandParameterPage.xaml";
-                case PageEnum.Users:
+                case PageEnum.User:
                     return "Resources/Pages/UserPage.xaml";
                 case PageEnum.Error:
                     return "Resources/Pages/ErrorPage.xaml";
@@ -43,7 +43,7 @@ namespace CommandPrompter.Resources
                 case "Resources/Pages/CommandParameterPage.xaml":
                     return PageEnum.CommandParameter;
                 case "Resources/Pages/UserPage.xaml":
-                    return PageEnum.Users;
+                    return PageEnum.User;
                 case "Resources/Pages/ErrorPage.xaml":
                     return PageEnum.Error;
                 case "Resources/Pages/WelcomePage.xaml":

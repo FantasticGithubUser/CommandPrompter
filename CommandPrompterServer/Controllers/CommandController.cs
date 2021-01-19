@@ -71,5 +71,24 @@ namespace CommandPrompterServer.Controllers
             return ret;
         }
 
+
+        [HttpPost]
+        [Route("GetEntities")]
+        [Authorize]
+        public List<CommandResponseDto> GetEntities([FromBody] List<QueryField> fields)
+        {
+            var commands = _commandService.GetEntities(fields);
+            if (commands != null)
+            {
+                var response = new List<CommandResponseDto>();
+                foreach (var item in commands)
+                {
+                    var command = _mapper.Map<CommandResponseDto>(item);
+                    response.Add(command);
+                }
+                return response;
+            }
+            return null;
+        }
     }
 }

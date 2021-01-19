@@ -41,9 +41,9 @@ namespace CommandPrompter.Models.ViewModels
             commandChain.ItemName = "C-Chains";
             SideMenuItems.Add(commandChain);
 
-            var user = new SideMenuItemViewModel(PageEnum.Users);
-            user.Icon = sideMenu.FindResource("Users") as string;
-            user.ItemName = "Users";
+            var user = new SideMenuItemViewModel(PageEnum.User);
+            user.Icon = sideMenu.FindResource("User") as string;
+            user.ItemName = "User";
             SideMenuItems.Add(user);
 
 

@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace CommandPrompter.Models.ViewModels
 {
@@ -20,6 +21,7 @@ namespace CommandPrompter.Models.ViewModels
             }
             set
             {
+                (window.FindName("PageFrame") as Frame).NavigationService.Refresh();
                 currentPage = value;
                 OnPropertyChanged("CurrentPage");
             }

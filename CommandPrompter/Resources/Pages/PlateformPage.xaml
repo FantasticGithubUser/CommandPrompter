@@ -8,7 +8,9 @@
       xmlns:res="clr-namespace:CommandPrompter.Resources"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="500"
-      Title="PlateformPage">
+      Title="PlateformPage"
+      Loaded="Page_Loaded"
+      Unloaded="Page_Unloaded">
 
     <Grid>
         <ListView ItemsSource="{Binding Plateforms}" Foreground="White" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
