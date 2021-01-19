@@ -22,16 +22,7 @@ namespace CommandPrompter.Resources.Pages
         public PlateformPage()
         {
             InitializeComponent();
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
             this.DataContext = new PlateformPageViewModel(this);
-        }
-
-        private void Page_Unloaded(object sender, RoutedEventArgs e)
-        {
-            this.DataContext = null;
         }
     }
 }

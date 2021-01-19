@@ -8,9 +8,7 @@
       xmlns:res="clr-namespace:CommandPrompter.Resources"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="500"
-      Title="PlateformPage"
-      Loaded="Page_Loaded"
-      Unloaded="Page_Unloaded">
+      Title="PlateformPage">
 
     <Grid>
         <ListView ItemsSource="{Binding Plateforms}" Foreground="White" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
@@ -19,7 +17,6 @@
                 </control:TileImageView>
             </ListView.View>
         </ListView>
-        <Image Source="Resources/Images/test.jpg"/>
 
     </Grid>
 </Page>
