@@ -7,11 +7,14 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
+using System.Windows.Input;
 
 namespace CommandPrompter.Models.ViewModels
 {
     public class PlateformPageViewModel : PageViewModel<PlateformPage>
     {
+        //Open the detail page.
+        public ICommand DetailCommand { get; private set; }
         public ObservableCollection<PlateformResponseDto> Plateforms { get; private set; } = new ObservableCollection<PlateformResponseDto>();
         public PlateformPageViewModel(PlateformPage page) : base(page)
         {
@@ -49,5 +52,7 @@ namespace CommandPrompter.Models.ViewModels
                 });
             });
         }
+
+        //private 
     }
 }

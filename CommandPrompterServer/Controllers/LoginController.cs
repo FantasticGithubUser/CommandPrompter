@@ -128,7 +128,7 @@ namespace CommandPrompterServer.Controllers
             var InitialPlateforms = new Action(() =>
             {
                 var image = System.IO.File.ReadAllBytes(@"C:\Users\Jiner\Pictures\Camera Roll\test.jpg");
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 1000; i++)
                 {
                     cur = _plateformService.AddNewEntity(new Models.Dao.Plateform
                     {
@@ -166,7 +166,7 @@ namespace CommandPrompterServer.Controllers
             var cmdId = "";
             var InitialCommand = new Action(() =>
             {
-                for(int i = 0; i < 30; i++)
+                for(int i = 0; i < 30000; i++)
                 {
                     var cmd = _commandService.AddNewEntity(new Models.Dao.Command
                     {
@@ -183,7 +183,7 @@ namespace CommandPrompterServer.Controllers
             var cmdParamId = "";
             var InitialCommandParam = new Action(() =>
             {
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 200000; i++)
                 {
                     var cmdParam = _commandParameterService.AddNewEntity(new Models.Dao.CommandParameter
                     {

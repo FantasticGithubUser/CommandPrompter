@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:CommandPrompter.Resources.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CommandPage">
+      Title="CommandPage" Style="{StaticResource BasePageStyle}">
 
     <Grid>
         <ListView Style="{StaticResource GenericListView}" ItemsSource="{Binding Commands}">

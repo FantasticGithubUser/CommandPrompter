@@ -14,6 +14,7 @@
                 <ResourceDictionary Source="Resources/ResourceDictionaries/Scroll.xaml"/>
                 <ResourceDictionary Source="Resources/ResourceDictionaries/Frame.xaml"/>
                 <ResourceDictionary Source="Resources/ResourceDictionaries/ListView.xaml"/>
+                <ResourceDictionary Source="Resources/ResourceDictionaries/Pages.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

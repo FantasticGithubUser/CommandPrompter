@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:CommandPrompter.Resources.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ErrorPage">
+      Title="ErrorPage" Style="{StaticResource BasePageStyle}">
 
     <Grid>
         <Border Background="Black" BorderBrush="#d46c55">

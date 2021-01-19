@@ -12,6 +12,7 @@
         res:WindowBlur.IsEnabled="True"
         Title="MainWindow" Height="450" Width="800"
         FontFamily="{StaticResource FontAwesome}"
+        MaxHeight="{x:Static SystemParameters.MaximizedPrimaryScreenHeight}"
         >
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">

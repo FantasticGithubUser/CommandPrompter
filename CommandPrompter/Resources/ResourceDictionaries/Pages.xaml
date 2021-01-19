@@ -6,11 +6,9 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Canvas>
-                        <Grid>
-                            
-                        </Grid>
-                    </Canvas>
+                    <Grid>
+                            <ContentPresenter Content="{TemplateBinding ContentControl.Content}"/>
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
