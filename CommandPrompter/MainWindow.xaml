@@ -11,6 +11,7 @@
         AllowsTransparency="True"
         res:WindowBlur.IsEnabled="True"
         Title="MainWindow" Height="450" Width="800"
+        MinHeight="450" MinWidth="800"
         FontFamily="{StaticResource FontAwesome}"
         MaxHeight="{x:Static SystemParameters.MaximizedPrimaryScreenHeight}"
         >

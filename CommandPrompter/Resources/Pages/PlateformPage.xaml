@@ -11,12 +11,14 @@
       Title="PlateformPage" Style="{StaticResource BasePageStyle}">
 
     <Grid>
-        <ListView ItemsSource="{Binding Plateforms}" Foreground="White" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+        <ListView Name="MainContent" ItemsSource="{Binding Plateforms}" Foreground="White" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
             <ListView.View>
                 <control:TileImageView>
                 </control:TileImageView>
             </ListView.View>
         </ListView>
-
+        <control:Popup x:Name="Popup">
+            <Button>test</Button>
+        </control:Popup>
     </Grid>
 </Page>

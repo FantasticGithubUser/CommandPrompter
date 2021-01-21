@@ -1,5 +1,6 @@
 ﻿using CommandPrompter.Helpers;
 using CommandPrompter.Models.Dtos.Responses;
+using CommandPrompter.Resources.Controls;
 using CommandPrompter.Resources.Pages;
 using Newtonsoft.Json;
 using System;
@@ -37,6 +38,7 @@ namespace CommandPrompter.Models.ViewModels
                     });
                 });
             }
+            (page.FindName("Popup") as Popup).IsPoppedUp = true;
         }
         public void GetAllPlateforms()
         {
