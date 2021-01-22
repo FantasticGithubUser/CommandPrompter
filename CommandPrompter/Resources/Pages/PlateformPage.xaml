@@ -18,7 +18,9 @@
             </ListView.View>
         </ListView>
         <control:Popup x:Name="Popup">
-            <Button>test</Button>
+            <control:Popup.InsideContent>
+                <Button>test</Button>
+            </control:Popup.InsideContent>
         </control:Popup>
     </Grid>
 </Page>

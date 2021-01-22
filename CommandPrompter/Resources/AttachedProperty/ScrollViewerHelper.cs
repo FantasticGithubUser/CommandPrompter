@@ -34,13 +34,20 @@ namespace CommandPrompter.Resources
             if (scrollViewer == null)
                 return;
 
-            if (Keyboard.Modifiers != ModifierKeys.Shift)
+            if (Keyboard.Modifiers != ModifierKeys.Control)
                 return;
 
             if (args.Delta < 0)
+            {
+                //Double the speed.
                 scrollViewer.LineRight();
+                scrollViewer.LineRight();
+            }
             else
+            {
                 scrollViewer.LineLeft();
+                scrollViewer.LineLeft();
+            }
 
             args.Handled = true;
         }

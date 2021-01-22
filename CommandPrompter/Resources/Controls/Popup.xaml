@@ -6,9 +6,13 @@
              xmlns:local="clr-namespace:CommandPrompter.Resources.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Page}}" Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource AncestorType=Page}}">
-    <Border Background="Wheat" CornerRadius="5" Padding="5" Width="100" Height="100">
-        <StackPanel>
-            <ContentPresenter Content="{TemplateBinding ContentControl.Content}"/>
-        </StackPanel>
-    </Border>
+    <UserControl.Template>
+        <ControlTemplate>
+            <Border Background="Wheat" CornerRadius="5" Padding="5" Width="500" Height="400">
+                <StackPanel>
+                    <ContentPresenter Content="{Binding InsideContent, RelativeSource={RelativeSource AncestorType=local:Popup}}"/>
+                </StackPanel>
+            </Border>
+        </ControlTemplate>
+    </UserControl.Template>
 </UserControl>

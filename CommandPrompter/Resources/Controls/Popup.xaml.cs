@@ -23,6 +23,8 @@ namespace CommandPrompter.Resources.Controls
 
         public static DependencyProperty IsPoppedUpProperty = DependencyProperty.Register("isPoppedUp", typeof(bool), typeof(Popup), new PropertyMetadata(false, IsPoppedUpPropertyChangedCallback));
 
+        public static DependencyProperty InsideContentProperty = DependencyProperty.Register("InsideContent", typeof(object), typeof(Popup), new PropertyMetadata(null));
+
         private static void IsPoppedUpPropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var popup = d as Popup;
@@ -52,6 +54,13 @@ namespace CommandPrompter.Resources.Controls
             get { return (bool)GetValue(IsPoppedUpProperty); }
             set { SetValue(IsPoppedUpProperty, value); }
         }
+
+        public object InsideContent
+        {
+            get { return (object)GetValue(InsideContentProperty); }
+            set { SetValue(InsideContentProperty, value); }
+        }
+
         public Popup()
         {
             this.Visibility = Visibility.Hidden;
