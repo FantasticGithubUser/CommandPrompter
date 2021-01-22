@@ -14,8 +14,6 @@ namespace CommandPrompter.Models.ViewModels
 {
     public class PlateformPageViewModel : PageViewModel<PlateformPage>
     {
-        //Open the detail page.
-        public ICommand DetailCommand { get; private set; }
         public ObservableCollection<PlateformResponseDto> Plateforms { get; private set; } = new ObservableCollection<PlateformResponseDto>();
         public PlateformPageViewModel(PlateformPage page) : base(page)
         {
@@ -38,7 +36,6 @@ namespace CommandPrompter.Models.ViewModels
                     });
                 });
             }
-            (page.FindName("Popup") as Popup).IsPoppedUp = true;
         }
         public void GetAllPlateforms()
         {

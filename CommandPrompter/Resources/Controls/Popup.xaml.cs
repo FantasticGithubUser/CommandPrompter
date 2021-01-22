@@ -25,6 +25,7 @@ namespace CommandPrompter.Resources.Controls
 
         public static DependencyProperty InsideContentProperty = DependencyProperty.Register("InsideContent", typeof(object), typeof(Popup), new PropertyMetadata(null));
 
+        public static DependencyProperty HeaderContentProperty = DependencyProperty.Register("HeaderContent", typeof(object), typeof(Popup), new PropertyMetadata(null));
         private static void IsPoppedUpPropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var popup = d as Popup;
@@ -61,10 +62,22 @@ namespace CommandPrompter.Resources.Controls
             set { SetValue(InsideContentProperty, value); }
         }
 
+        public object HeaderContent
+        {
+            get { return (object)GetValue(HeaderContentProperty); }
+            set { SetValue(HeaderContentProperty, value); }
+        }
+
+
         public Popup()
         {
             this.Visibility = Visibility.Hidden;
             InitializeComponent();
+        }
+
+        private void Popup_Close(object sender, RoutedEventArgs e)
+        {
+            this.IsPoppedUp = false;
         }
     }
 }

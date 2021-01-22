@@ -17,9 +17,18 @@
                 </control:TileImageView>
             </ListView.View>
         </ListView>
-        <control:Popup x:Name="Popup">
+        <control:Popup x:Name="Popup" IsPoppedUp="True">
+            <control:Popup.HeaderContent>
+                <Viewbox>
+                <Label Content="Plateform" Foreground="White"/>
+                </Viewbox>
+            </control:Popup.HeaderContent>
             <control:Popup.InsideContent>
-                <Button>test</Button>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        
+                    </StackPanel>
+                </StackPanel>
             </control:Popup.InsideContent>
         </control:Popup>
     </Grid>
