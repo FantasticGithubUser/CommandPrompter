@@ -8,6 +8,7 @@ namespace CommandPrompterServer.Models.Dto
     public class PlateformResponseDto
     {
         public string Id { get; set; }
+        public int Version { get; set; }
         public string CreatorId { get; set; }
         public string Name { get; set; }
         public string PlateformVersion { get; set; }

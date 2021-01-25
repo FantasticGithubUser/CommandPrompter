@@ -22,18 +22,35 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-        <control:Popup x:Name="Popup" IsPoppedUp="False">
+        <control:Popup x:Name="Popup" IsPoppedUp="False" ContextString="PlateformContext">
             <control:Popup.HeaderContent>
                 <Viewbox>
                 <Label Content="Plateform" Foreground="White"/>
                 </Viewbox>
             </control:Popup.HeaderContent>
             <control:Popup.InsideContent>
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        
-                    </StackPanel>
-                </StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Id" Style="{StaticResource PopupNormalLabel}"/>
+                    <Label Grid.Row="0" Grid.Column="1" Content="{Binding Id}" Style="{StaticResource PopupNormalContentLabel}"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Name" Style="{StaticResource PopupNormalLabel}"/>
+                    <Label Grid.Row="1" Grid.Column="1" Content="{Binding Name}" Style="{StaticResource PopupNormalContentLabel}"/>
+                    <Label Grid.Row="2" Grid.Column="0" Content="Plateform Version" Style="{StaticResource PopupNormalLabel}"/>
+                    <Label Grid.Row="2" Grid.Column="1" Content="{Binding PlateformVersion}" Style="{StaticResource PopupNormalContentLabel}"/>
+                    <Label Grid.Row="3" Grid.Column="0" Content="Description" Style="{StaticResource PopupNormalLabel}"/>
+                    <Label Grid.Row="3" Grid.Column="1" Content="{Binding Description}" Style="{StaticResource PopupNormalContentLabel}"/>
+                    <Image Grid.Row="0" Grid.Column="2" Grid.RowSpan="4" Source="{Binding Image, Converter={res:ByteArrayToImageConverter}}"/>
+                </Grid>
             </control:Popup.InsideContent>
         </control:Popup>
     </Grid>

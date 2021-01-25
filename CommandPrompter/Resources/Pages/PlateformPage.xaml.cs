@@ -1,4 +1,5 @@
-﻿using CommandPrompter.Models.Dtos.Responses;
+﻿using CommandPrompter.Helpers;
+using CommandPrompter.Models.Dtos.Responses;
 using CommandPrompter.Models.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -28,10 +29,11 @@ namespace CommandPrompter.Resources.Pages
 
         private void ListViewItem_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var plateform = (sender as ListViewItem).DataContext as PlateformResponseDto;
-            if(plateform != null)
+            var item = sender as ListViewItem;
+            if (sender != null)
             {
-                (this.DataContext as PlateformPageViewModel).TogglePopup();
+                (this.DataContext as PlateformPageViewModel)?.ShowPopup((PlateformResponseDto)item.DataContext);
+                e.Handled = true;
             }
         }
     }

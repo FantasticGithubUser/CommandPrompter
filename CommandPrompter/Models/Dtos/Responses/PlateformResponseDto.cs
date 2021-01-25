@@ -13,6 +13,7 @@ namespace CommandPrompter.Models.Dtos.Responses
         public string CreatorId { get; set; }
         public byte[] Image { get; set; }
         public string Description { get; set; }
+        public string PlateformId { get; set; }
 
     }
 }

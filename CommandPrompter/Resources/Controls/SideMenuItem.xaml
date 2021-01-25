@@ -13,7 +13,6 @@
                 <Run FontFamily="{StaticResource FontAwesome}" Text="{Binding Icon}"></Run>
             </TextBlock>
             <TextBlock>
-                    
                     <Run Text="{Binding ItemName}"></Run>
             </TextBlock>
         </StackPanel>

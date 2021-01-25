@@ -12,6 +12,18 @@ namespace CommandPrompter.Models.ViewModels
 {
     public abstract class PageViewModel<T> : SimpleViewModel where T : Page
     {
+        private Popup popup = null;
+        protected Popup Popup 
+        {
+            get
+            {
+                if(popup == null)
+                {
+                    popup = MyVisualTreeHelper.FindChildByType<Popup>(page);
+                }
+                return popup;
+            }
+        }
         protected T page;
         public PageViewModel(T page)
         {
@@ -22,33 +34,12 @@ namespace CommandPrompter.Models.ViewModels
             page.Dispatcher.Invoke(action);
         }
 
-        public void TogglePopup()
+        protected void TogglePopup()
         {
-            var popup = FindDescendant<Popup>(page);
-            if(popup != null)
+            if(Popup != null)
             {
-                popup.IsPoppedUp = !popup.IsPoppedUp;
+                Popup.IsPoppedUp = true;
             }
-        }
-
-        private static F FindDescendant<F>(DependencyObject d) where F : DependencyObject
-        {
-            if (d == null)
-                return null;
-
-            var childCount = VisualTreeHelper.GetChildrenCount(d);
-
-            for (var i = 0; i < childCount; i++)
-            {
-                var child = VisualTreeHelper.GetChild(d, i);
-
-                var result = child as F ?? FindDescendant<F>(child);
-
-                if (result != null)
-                    return result;
-            }
-
-            return null;
         }
     }
 }

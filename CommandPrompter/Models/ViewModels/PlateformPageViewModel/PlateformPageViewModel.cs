@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -37,6 +38,7 @@ namespace CommandPrompter.Models.ViewModels
                 });
             }
         }
+
         public void GetAllPlateforms()
         {
             _ = HttpRequestHelper.GetAsync<List<PlateformResponseDto>>(RouteHelper.GetAllPlateforms, res =>
@@ -51,7 +53,15 @@ namespace CommandPrompter.Models.ViewModels
                 });
             });
         }
-
+        
+        public void ShowPopup(PlateformResponseDto info)
+        {
+            if (Popup != null)
+            {
+                PageSwitchHelper.PutContext(Popup.ContextString, info);
+                TogglePopup();
+            }
+        }
         //private 
     }
 }

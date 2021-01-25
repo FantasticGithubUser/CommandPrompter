@@ -78,6 +78,18 @@ namespace CommandPrompter.Resources.Controls
         private void Popup_Close(object sender, RoutedEventArgs e)
         {
             this.IsPoppedUp = false;
+            e.Handled = true;
+        }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.IsPoppedUp = false;
+            e.Handled = true;
+        }
+
+        private void InnerBorder_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;//Do nothing.
         }
     }
 }
