@@ -16,8 +16,13 @@
                 <control:TileImageView>
                 </control:TileImageView>
             </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseDoubleClick" Handler="ListViewItem_PreviewMouseDoubleClick"/>
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
-        <control:Popup x:Name="Popup" IsPoppedUp="True">
+        <control:Popup x:Name="Popup" IsPoppedUp="False">
             <control:Popup.HeaderContent>
                 <Viewbox>
                 <Label Content="Plateform" Foreground="White"/>

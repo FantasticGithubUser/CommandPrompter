@@ -1,4 +1,5 @@
-﻿using CommandPrompter.Models.ViewModels;
+﻿using CommandPrompter.Models.Dtos.Responses;
+using CommandPrompter.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,6 +24,15 @@ namespace CommandPrompter.Resources.Pages
         {
             InitializeComponent();
             this.DataContext = new PlateformPageViewModel(this);
+        }
+
+        private void ListViewItem_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var plateform = (sender as ListViewItem).DataContext as PlateformResponseDto;
+            if(plateform != null)
+            {
+                (this.DataContext as PlateformPageViewModel).TogglePopup();
+            }
         }
     }
 }
