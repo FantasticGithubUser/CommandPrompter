@@ -33,12 +33,12 @@ namespace CommandPrompter.Models.ViewModels
 
             var commandParameter = new SideMenuItemViewModel(PageEnum.CommandParameter);
             commandParameter.Icon = sideMenu.FindResource("CommandParameter") as string;
-            commandParameter.ItemName = "C-Parameters";
+            commandParameter.ItemName = "Parameters";
             SideMenuItems.Add(commandParameter);
 
             var commandChain = new SideMenuItemViewModel(PageEnum.CommandChain);
             commandChain.Icon = sideMenu.FindResource("CommandChain") as string;
-            commandChain.ItemName = "C-Chains";
+            commandChain.ItemName = "Chains";
             SideMenuItems.Add(commandChain);
 
             var user = new SideMenuItemViewModel(PageEnum.User);

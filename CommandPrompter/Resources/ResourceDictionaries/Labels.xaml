@@ -8,15 +8,7 @@
                 <ControlTemplate>
                     <StackPanel Orientation="Horizontal">
                         <Viewbox>
-                            <TextBlock Text="{TemplateBinding ContentControl.Content}" TextWrapping="WrapWithOverflow">
-                                <TextBlock.ToolTip>
-                                    <ToolTip>
-                                        <Border BorderBrush="White">
-                                            
-                                        </Border>
-                                    </ToolTip>
-                                </TextBlock.ToolTip>
-                            </TextBlock>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{TemplateBinding ContentControl.Content}" TextWrapping="WrapWithOverflow"/>
                         </Viewbox>
                     </StackPanel>
                 </ControlTemplate>
@@ -26,6 +18,23 @@
 
     <Style x:Key="PopupNormalContentLabel" TargetType="{x:Type Label}">
         <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Viewbox>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{TemplateBinding ContentControl.Content}" TextWrapping="WrapWithOverflow">
+                                <TextBlock.ToolTip>
+                                    <ToolTip Style="{StaticResource NormalToolTip}">
+                                        <TextBlock Text="{TemplateBinding ContentControl.Content}" MaxWidth="200" TextWrapping="WrapWithOverflow"/>
+                                    </ToolTip>
+                                </TextBlock.ToolTip>
+                            </TextBlock>
+                        </Viewbox>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
     
 </ResourceDictionary>

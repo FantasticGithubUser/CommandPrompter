@@ -37,9 +37,9 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Content="Id" Style="{StaticResource PopupNormalLabel}"/>
                     <Label Grid.Row="0" Grid.Column="1" Content="{Binding Id}" Style="{StaticResource PopupNormalContentLabel}"/>
